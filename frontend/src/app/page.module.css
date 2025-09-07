@@ -67,18 +67,15 @@
   position: absolute;
   top: var(--nav-clear);
 
-  /* Lock to the content column's left edge without drifting on small screens */
   left: max(
     calc(var(--gutter-x) * 2),
     calc(46% - (var(--content-max, 900px) / 2))
   );
   transform: none;
 
-  /* Keep it within the content width (or page minus gutters on small screens) */
   width: min(var(--content-max, 900px), calc(100% - var(--gutter-x) * 2));
   max-width: var(--content-max, 900px);
-
-  /* Responsive, but capped, title size */
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.02em;
