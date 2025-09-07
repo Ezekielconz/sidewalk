@@ -16,7 +16,7 @@
   align-items: center;
   gap: 1rem;
   width: min(1100px, calc(100% - 2rem));
-  padding: 0.75rem 1rem;
+  padding: 1rem 1rem;
   border-radius: 12px;
   background: #202e37;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
@@ -25,7 +25,6 @@
 }
 
 .logo {
-  padding-top: 10px;
   display: flex;
   align-items: center;
   cursor: pointer;
