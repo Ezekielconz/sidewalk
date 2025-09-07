@@ -25,7 +25,7 @@ export default function Navbar() {
     }
   }, [open]);
 
-  // Close on Escape (JS only — no TS annotation)
+  // Close on Escape (JS only)
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "Escape") setOpen(false);
@@ -84,11 +84,11 @@ export default function Navbar() {
       <div
         id="mobileMenu"
         className={`${styles.mobileMenu} ${open ? styles.open : ""}`}
-        role="dialog"
-        aria-modal="true"
+        role={open ? "dialog" : undefined}
+        aria-modal={open || undefined}
         aria-label="Mobile"
       >
-        <ul className={styles.mobileList}>
+        <ul className={styles.mobileList} aria-hidden={!open}>
           <li>
             <Link href="/about" ref={firstLinkRef} onClick={() => setOpen(false)}>
               about us

@@ -7,11 +7,13 @@
   display: flex;
   justify-content: center;
   z-index: 1200;
+
+  /* Allow clicks to pass through the header chrome by default */
   pointer-events: none;
 }
 
 .nav {
-  pointer-events: auto;
+  pointer-events: auto; /* re-enable for the bar itself */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -115,13 +117,13 @@
   inset: 0;
   background: rgba(0,0,0,0.35);
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none; /* disabled by default */
   transition: opacity 0.25s ease;
   z-index: 900; /* under the header but above page */
 }
 .backdrop.show {
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: auto; /* clickable when visible */
 }
 
 /* --- Slide-down mobile menu --- */
@@ -137,8 +139,14 @@
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.28);
+
+  /* CRITICAL: re-enable interaction for the sheet ONLY when open */
+  pointer-events: none;
 }
-.open { transform: translateY(0); }
+.open {
+  transform: translateY(0);
+  pointer-events: auto; /* now links are clickable */
+}
 
 .mobileList {
   list-style: none;
