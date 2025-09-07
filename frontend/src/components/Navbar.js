@@ -88,6 +88,22 @@ export default function Navbar() {
         aria-modal={open || undefined}
         aria-label="Mobile"
       >
+        {/* Logo inside the mobile sheet */}
+        <div className={styles.mobileHeader}>
+          <Link
+            href="/"
+            className={styles.mobileLogo}
+            aria-label="Sidewalk Home"
+            onClick={() => setOpen(false)}
+          >
+            <img
+              src="/logo.svg"
+              alt="Sidewalk Logo"
+              className={styles.mobileLogoImg}
+            />
+          </Link>
+        </div>
+
         <ul className={styles.mobileList} aria-hidden={!open}>
           <li>
             <Link href="/about" ref={firstLinkRef} onClick={() => setOpen(false)}>

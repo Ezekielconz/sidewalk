@@ -121,7 +121,7 @@
   transition: opacity 0.25s ease;
   z-index: 900; /* under the header but above page */
 }
-.backdrop.show {
+.show {
   opacity: 1;
   pointer-events: auto; /* clickable when visible */
 }
@@ -148,6 +148,28 @@
   pointer-events: auto; /* now links are clickable */
 }
 
+/* --- NEW: Mobile sheet header with logo --- */
+.mobileHeader {
+  max-width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mobileLogo {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+.mobileLogoImg {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Keep list below the logo */
 .mobileList {
   list-style: none;
   margin: 0 auto;
@@ -176,7 +198,7 @@
   .nav { padding: 0.75rem 0.75rem; border-radius: 10px; }
   .navLinks { display: none; }
   .burger { display: inline-flex; }
-  .logoImg { height: 36px; }
+  .logoImg { height: 36px;}
 }
 
 /* Reduce motion preference */
