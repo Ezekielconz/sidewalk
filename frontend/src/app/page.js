@@ -1,95 +1,83 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+import HeroSection from "../components/sections/HeroSection";
+import AboutSection from "../components/sections/AboutSection";
+import WhySection from "../components/sections/WhySection";
+import ServicesSection from "../components/sections/ServicesSection";
+import PortfolioSection from "../components/sections/PortfolioSection";
+import TechSection from "../components/sections/TechSection";
+import ContactSection from "../components/sections/ContactSection";
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+const SECTIONS = [
+  { id: "hero", label: "Home" },
+  { id: "about", label: "About us" },
+  { id: "why-us", label: "Why us" },
+  { id: "services", label: "Services" },
+  { id: "portfolio", label: "Our work" },
+  { id: "tech", label: "Tech & platforms" },
+  { id: "contact", label: "Contact" },
+];
+
+export default function Home() {
+  const containerRef = useRef(null);
+  const [active, setActive] = useState(SECTIONS[0].id);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    // Observe all sections for active state (just for the dot nav)
+    const sectionEls = Array.from(document.querySelectorAll(`.${styles.section}`));
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) setActive(visible.target.id);
+      },
+      { root: null, threshold: 0.6 }
+    );
+    sectionEls.forEach((s) => io.observe(s));
+    return () => io.disconnect();
+  }, []);
+
+  const handleClick = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <>
+      {/* Left-side skewed-rectangle nav */}
+      <nav className={styles.dotWrap} aria-label="Section navigation">
+        <ul className={styles.dots}>
+          {SECTIONS.map((s) => (
+            <li key={s.id} className={styles.dotItem}>
+              <button
+                type="button"
+                aria-label={s.label}
+                aria-current={active === s.id ? "true" : "false"}
+                className={`${styles.dot} ${active === s.id ? styles.active : ""}`}
+                onClick={() => handleClick(s.id)}
+              />
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Snap container */}
+      <div ref={containerRef} className={styles.snapContainer}>
+        <HeroSection />
+        <AboutSection />
+        <WhySection />
+        <ServicesSection />
+        <PortfolioSection />
+        <TechSection />
+        <ContactSection />
+      </div>
+    </>
   );
 }

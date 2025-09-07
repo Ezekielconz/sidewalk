@@ -1,0 +1,87 @@
+.header {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.nav {
+  pointer-events: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: min(1100px, calc(100% - 2rem));
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: #202e37;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  backdrop-filter: saturate(180%) blur(10px);
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.logo {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.logo a {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+.logoImg {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.navLinks li {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks li a {
+  text-decoration: none;
+  color: #fff7ed;
+  transition: color 0.2s ease-in-out;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navLinks li a:hover {
+  color: #0070f3;
+}
+
+.contactBtn {
+  background: #de442a;
+  color: #fff !important;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.contactBtn:hover {
+  background: #c53c25;
+  color: #fff;
+  transform: scale(1.08) rotate(-2deg);
+}
