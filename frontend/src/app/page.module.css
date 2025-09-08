@@ -716,4 +716,5 @@
 @media (max-width: 900px) {
   .grid3 { grid-template-columns: 1fr; }
   .aboutGrid { grid-template-columns: 1fr; }
+  .dotWrap { display: none; }
 }
