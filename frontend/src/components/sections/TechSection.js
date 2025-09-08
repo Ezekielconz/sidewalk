@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "./Section";
 import styles from "../../app/page.module.css";
 
@@ -17,15 +16,13 @@ export default function TechSection() {
           </p>
         </div>
 
-        {/* Right illustration */}
-        <div className={styles.techImage}>
-          <Image
-            src="/images/section-tech.apng"
-            alt="Tech illustration"
-            width={400}
-            height={400}
-          />
-        </div>
+        {/* Right illustration (becomes decorative bg on mobile) */}
+        <img
+          src="/images/section-tech.apng"
+          alt=""
+          aria-hidden="true"
+          className={styles.techImage}
+        />
       </div>
     </Section>
   );
