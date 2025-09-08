@@ -40,7 +40,6 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* Dot nav */}
       <nav className={base.dotWrap} aria-label="Section navigation">
         <ul className={base.dots}>
           {SECTIONS.map((s) => (
@@ -57,9 +56,7 @@ export default function ServicesPage() {
         </ul>
       </nav>
 
-      {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
-        {/* HERO */}
         <Section id="hero" title="services" className={`${base.hero} ${styles.hero}`}>
           <div className={base.heroInner}>
             <div className={base.heroText}>
@@ -82,7 +79,6 @@ export default function ServicesPage() {
           </div>
         </Section>
 
-        {/* WHAT WE DO — two columns */}
         <Section id="services" title="what we do" className={styles.services}>
           <div className={base.servicesGrid}>
             <div className={base.servicesText}>
@@ -109,7 +105,6 @@ export default function ServicesPage() {
           </div>
         </Section>
 
-        {/* WORKFLOW — two columns */}
         <Section id="workflow" title="workflow" className={styles.workflow}>
           <div className={base.whyGridOuter}>
             <div className={base.whyText}>
@@ -122,51 +117,49 @@ export default function ServicesPage() {
             <div className={styles.flowList}>
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <strong>01 — discover</strong>
-                  <p>we listen first. understanding your goals, audience, and challenges. this shared understanding sets the direction.</p>
-                </div>
-                <div className={styles.flowImage}>
-                  <img src="/images/flow-arrow-down.apng" alt="downward arrow" />
-                </div>
-              </div>
-
-              <div className={styles.flowRow}>
-                <div className={styles.flowText}>
-                  <strong>02 — design</strong>
-                  <p>we explore ideas, create layouts, and shape a brand presence that feels distinctive and easy to use.</p>
-                </div>
-                <div className={styles.flowImage}>
-                  <img src="/images/flow-arrow-down.apng" alt="downward arrow" />
+                  <img src="/images/services-workflow-1.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <div className={styles.flowBody}>
+                    <strong>01 — discover</strong>
+                    <p>we listen first. understanding your goals, audience, and challenges. this shared understanding sets the direction.</p>
+                  </div>
                 </div>
               </div>
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <strong>03 — build</strong>
-                  <p>we turn designs into fast, responsive, and accessible websites, engineered for long-term performance.</p>
-                </div>
-                <div className={styles.flowImage}>
-                  <img src="/images/flow-arrow-down.apng" alt="downward arrow" />
+                  <img src="/images/services-workflow-2.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <div className={styles.flowBody}>
+                    <strong>02 — design</strong>
+                    <p>we explore ideas, create layouts, and shape a brand presence that feels distinctive and easy to use.</p>
+                  </div>
                 </div>
               </div>
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <strong>04 — launch</strong>
-                  <p>we prepare every detail for a smooth launch, then support you with updates, care, and improvements.</p>
+                  <img src="/images/services-workflow-3.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <div className={styles.flowBody}>
+                    <strong>03 — build</strong>
+                    <p>we turn designs into fast, responsive, and accessible websites, engineered for long-term performance.</p>
+                  </div>
                 </div>
-                <div className={styles.flowImage}>
-                  <img src="/images/flow-arrow-down.apng" alt="downward arrow" />
+              </div>
+
+              <div className={styles.flowRow}>
+                <div className={styles.flowText}>
+                  <img src="/images/services-workflow-4.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <div className={styles.flowBody}>
+                    <strong>04 — launch</strong>
+                    <p>we prepare every detail for a smooth launch, then support you with updates, care, and improvements.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </Section>
 
-        {/* PACKAGES — icons added */}
         <Section id="packages" title="packages" className={styles.packages}>
           <div className={base.whyGridOuter}>
-            {/* Left text */}
             <div className={base.whyText}>
               <h2 className={styles.titleTight}>ways to work with us</h2>
               <p className={base.whyIntro}>
@@ -174,14 +167,9 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            {/* Right: items with icons (no background/shadow) */}
             <div className={styles.packageList}>
               <div className={styles.packageItem}>
-                <img
-                  className={styles.packageIcon}
-                  src="/images/services-packages-1.apng"
-                  alt="seed package icon"
-                />
+                <img className={styles.packageIcon} src="/images/services-packages-1.apng" alt="seed package icon" />
                 <div className={styles.packageBody}>
                   <strong>seed</strong>
                   <p>a clean, fast website that covers the basics. perfect for portfolios, landing pages, or small businesses starting out.</p>
@@ -189,11 +177,7 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles.packageItem}>
-                <img
-                  className={styles.packageIcon}
-                  src="/images/services-packages-2.apng"
-                  alt="growth package icon"
-                />
+                <img className={styles.packageIcon} src="/images/services-packages-2.apng" alt="growth package icon" />
                 <div className={styles.packageBody}>
                   <strong>growth</strong>
                   <p>a custom design and build with room to expand. ideal for businesses ready to stand out with a distinctive brand and marketing site.</p>
@@ -201,11 +185,7 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles.packageItem}>
-                <img
-                  className={styles.packageIcon}
-                  src="/images/services-packages-3.apng"
-                  alt="thrive package icon"
-                />
+                <img className={styles.packageIcon} src="/images/services-packages-3.apng" alt="thrive package icon" />
                 <div className={styles.packageBody}>
                   <strong>thrive</strong>
                   <p>strategy, design, development, and ongoing care. best for established businesses that want a long-term partner.</p>
@@ -215,7 +195,6 @@ export default function ServicesPage() {
           </div>
         </Section>
 
-        {/* CTA — two columns on desktop; image becomes decorative bg on mobile */}
         <Section id="cta" title="let's talk" className={base.contact}>
           <div className={`${base.contactInner} ${styles.ctaInner}`}>
             <div className={styles.contactText}>
@@ -225,8 +204,6 @@ export default function ServicesPage() {
               </p>
               <a className={base.primaryCta} href="/contact">contact us</a>
             </div>
-
-            {/* Decorative on mobile */}
             <img
               src="/images/section-contact3.apng"
               alt=""

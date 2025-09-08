@@ -1,36 +1,35 @@
-/* hero mirrors your home vibe with slight hue shift */
+/* =========================================================
+   SECTION BACKGROUNDS
+   ========================================================= */
 .hero {
   background:
     radial-gradient(1600px 700px at 70% 10%, rgba(255, 215, 200, 0.35), transparent 60%),
     linear-gradient(135deg, #f4ede3 0%, #f2e7de 55%, #f6e3e3 100%);
 }
-
-/* section backgrounds echo your palette language */
 .services {
   background:
     radial-gradient(1000px 500px at 80% 20%, rgba(121, 40, 202, 0.08), transparent 60%),
     linear-gradient(135deg, #f4ede3, #f7eee8);
 }
-
 .workflow {
   background:
     radial-gradient(900px 450px at 60% 30%, rgba(32, 46, 55, 0.08), transparent 60%),
     linear-gradient(135deg, #f4ede3, #efe7db);
 }
-
 .packages {
   background:
     radial-gradient(1000px 500px at 20% 80%, rgba(0, 112, 243, 0.08), transparent 60%),
     linear-gradient(135deg, #f4ede3, #f6e9df);
 }
-
 .cta {
   background:
     radial-gradient(1000px 500px at 50% 20%, rgba(222, 68, 42, 0.10), transparent 60%),
     linear-gradient(135deg, #f4ede3, #f7e8e1);
 }
 
-/* headings */
+/* =========================================================
+   HEADINGS
+   ========================================================= */
 .titleTight {
   font-family: var(--font-montserrat), sans-serif;
   font-weight: 800;
@@ -40,7 +39,9 @@
   letter-spacing: -0.01em;
 }
 
-/* comfortable bullets inside local sections */
+/* =========================================================
+   LIST COMFORT
+   ========================================================= */
 .workflow :global(.bullets) li,
 .services :global(.bullets) li,
 .packages :global(.bullets) li,
@@ -48,56 +49,65 @@
   line-height: 1.55;
 }
 
-/* ---------- WORKFLOW alternating rows ---------- */
+/* =========================================================
+   WORKFLOW (uniform layout: icon + text for all rows)
+   ========================================================= */
 .flowList {
   display: grid;
   gap: 2.25rem;
 }
 
 .flowRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 2rem;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.flowText { text-align: left; }
+.flowText {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  max-width: 680px;
+}
 
-.flowText strong {
+.flowIcon {
+  width: clamp(44px, 6vw, 64px);
+  height: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.flowBody { display: block; }
+.flowBody strong {
   display: block;
   color: var(--brand);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+.flowBody p {
+  line-height: 1.7;
+  margin: 0;
 }
 
-.flowText p { line-height: 1.7; }
-
-.flowImage {
-  display: flex;
-  justify-content: center;
+/* Mobile */
+@media (max-width: 900px) {
+  .flowBody { text-align: inherit; }
+  .flowIcon { width: clamp(40px, 10vw, 56px); }
 }
 
-.flowImage img {
-  width: 100%;
-  max-width: clamp(72px, 10vw, 120px);
-  height: auto;
-}
-
-.flowRow:nth-child(even) .flowText { grid-column: 2; text-align: right; }
-.flowRow:nth-child(even) .flowImage { grid-column: 1; justify-content: center; }
-
-/* ---------- PACKAGES (icons + copy, no card chrome) ---------- */
+/* =========================================================
+   PACKAGES (icons + copy)
+   ========================================================= */
 .packageList {
   display: grid;
   gap: 1.5rem;
 }
-
 .packageItem {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
   gap: 1rem;
 }
-
 .packageIcon {
   width: clamp(56px, 8vw, 80px);
   height: auto;
@@ -105,13 +115,8 @@
   display: block;
   transition: transform .2s ease;
 }
-
-.packageItem:hover .packageIcon {
-  transform: translateY(-2px);
-}
-
+.packageItem:hover .packageIcon { transform: translateY(-2px); }
 .packageBody { text-align: left; }
-
 .packageBody strong {
   display: block;
   color: var(--brand);
@@ -119,53 +124,39 @@
   font-family: var(--font-montserrat), sans-serif;
   font-weight: 700;
 }
-
 .packageBody p { line-height: 1.65; }
+@media (max-width: 900px) {
+  .packageItem { grid-template-columns: 64px 1fr; }
+}
 
-/* ---------- CTA (desktop: inline image; mobile: image behind copy) ---------- */
+/* =========================================================
+   CTA (desktop: inline image; mobile: image behind copy)
+   ========================================================= */
 .contactText {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: flex-start; /* prevents CTA button from stretching full-width on desktop */
+  align-items: flex-start;
 }
-
-.ctaInner { /* desktop uses base .contactInner grid */ }
-
+.ctaInner { }
 .ctaImage {
   max-width: 100%;
   height: auto;
   display: block;
-  position: relative; /* normal flow on desktop */
+  position: relative;
   z-index: 0;
 }
-
-/* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .flowRow {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-    text-align: center;
-  }
-  .flowRow:nth-child(even) .flowText { grid-column: auto; text-align: center; }
-  .flowRow:nth-child(even) .flowImage { grid-column: auto; }
-
-  .packageItem {
-    grid-template-columns: 64px 1fr;
-  }
-
-  /* CTA overrides for mobile */
   .ctaInner {
     position: relative;
-    grid-template-columns: 1fr;         /* stack */
+    grid-template-columns: 1fr;
     place-items: center;
     text-align: left;
     min-height: min(88vh, 900px);
     padding: 2rem 0;
   }
-
   .ctaImage {
-    position: absolute;                 /* sit behind the copy */
+    position: absolute;
     inset: 0;
     margin: auto;
     width: min(900px, 92vw);
@@ -173,8 +164,7 @@
     opacity: 0.18;
     pointer-events: none;
     filter: saturate(105%);
-    z-index: -100; 
+    z-index: -100;
   }
-
-  .contactText { align-items: center; } /* re-center CTA column on mobile */
+  .contactText { align-items: center; }
 }

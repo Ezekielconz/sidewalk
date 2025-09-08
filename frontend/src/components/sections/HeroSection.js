@@ -26,7 +26,7 @@ export default function HeroSection() {
         {/* Decorative image centered behind text */}
         <div className={styles.heroImage} aria-hidden="true">
           <img
-            src="/images/hero_flicker.apng"
+            src="/images/section-hero.apng"
             alt=""
             className={styles.flickerImage}
           />
