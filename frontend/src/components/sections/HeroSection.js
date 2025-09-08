@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <Section id="hero" title="sidewalk" className={styles.hero}>
       <div className={styles.heroInner}>
-        {/* Left text content */}
+        {/* Text on top, centered */}
         <div className={styles.heroText}>
           <h1>breakaway from the cookiecutter</h1>
           <p className={styles.lead}>
@@ -23,11 +23,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right image (animated PNG) */}
-        <div className={styles.heroImage}>
+        {/* Decorative image centered behind text */}
+        <div className={styles.heroImage} aria-hidden="true">
           <img
             src="/images/hero_flicker.apng"
-            alt="Hand-drawn flicker illustration"
+            alt=""
             className={styles.flickerImage}
           />
         </div>
