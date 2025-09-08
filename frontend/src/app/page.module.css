@@ -414,7 +414,7 @@
 }
 
 /* =========================================================
-   WHY SECTION (responsive)
+   WHY SECTION (icon left, text right — one item per row)
    ========================================================= */
 .whyGridOuter {
   display: grid;
@@ -423,7 +423,7 @@
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
-  text-align: left;                  /* keep left-aligned by default */
+  text-align: left;
 }
 
 .whyText {
@@ -448,18 +448,17 @@
   color: var(--ink);
 }
 
-/* Items: tidy grid inside the right column */
+/* One item per row; the item itself is a 2-col grid */
 .whyItems {
   display: grid;
-  grid-template-columns: 1fr;        /* stack items vertically on desktop */
-  gap: 1.25rem;
+  grid-template-columns: 1fr;        /* <-- one item per row */
+  gap: 1rem;
   align-content: start;
 }
 
-/* Each item: icon left, text right on desktop */
 .whyItem {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 80px 1fr;   /* icon | text */
   align-items: center;
   column-gap: 1rem;
   text-align: left;
@@ -469,7 +468,7 @@
   height: 72px;
   width: auto;
   object-fit: contain;
-  margin: 0;                          /* remove bottom gap used when stacked */
+  margin: 0;
 }
 
 .whyItem p {
@@ -490,38 +489,32 @@
 /* ------------------ Mobile ------------------ */
 @media (max-width: 900px) {
   .whyGridOuter {
-    grid-template-columns: 1fr;       /* single column */
-    text-align: left;                  /* match other sections */
+    grid-template-columns: 1fr;     /* stack intro above items */
   }
 
-  /* Give the block some breathing room below the intro */
   .whyText { margin-bottom: 1.25rem; }
 
-  /* Two-column item grid so it’s not too tall */
+  /* Keep one item per row on mobile, still 2 columns inside */
   .whyItems {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem 1rem;
+    grid-template-columns: 1fr;      /* stay single-column list */
+    gap: 1.5rem;
   }
 
-  /* Stack icon over text inside each cell on mobile */
   .whyItem {
-    grid-template-columns: 1fr;
+    grid-template-columns: 68px 1fr; /* slightly smaller icon on mobile */
     align-items: start;
-    text-align: left;
+    column-gap: 1.5rem;
   }
 
-  .whyIcon {
-    height: 64px;
-    margin-bottom: 0.4rem;
-  }
+  .whyIcon { height: 60px; }
 }
 
 /* =========================================================
-   SERVICES
+   SERVICES (icon left, text right — one item per row)
    ========================================================= */
 .servicesGrid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.5fr; /* left copy, right items */
   gap: 2rem;
   align-items: center;
   max-width: 1100px;
@@ -551,58 +544,70 @@
   color: var(--ink);
 }
 
+/* One service per row; inside each item: 2-col grid (icon | text) */
 .servicesItems {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr; /* single column list of items */
+  gap: 1rem;
 }
 
 .serviceItem {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 90px 1fr; /* icon | text */
   align-items: center;
-  text-align: center;
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--ink);
+  column-gap: 1rem;
+  text-align: left;
 }
 
 .serviceIcon {
-  height: 80px;
+  height: 72px;
   width: auto;
-  margin-bottom: 1rem;
+  object-fit: contain;
+  grid-column: 1;
+  grid-row: 1 / span 2; /* icon spans the heading + paragraph */
 }
 
 .serviceItem h3 {
+  grid-column: 2;
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.35rem 0;
   text-transform: lowercase;
   color: var(--ink);
 }
 
 .serviceItem p {
+  grid-column: 2;
+  margin: 0;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--ink);
   text-transform: lowercase;
-  max-width: 300px;
-  margin: 0 auto;
 }
 
+/* ------------------ Mobile ------------------ */
 @media (max-width: 900px) {
   .servicesGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* stack intro above items */
   }
   .servicesText {
-    text-align: center;
-    margin-bottom: 2rem;
+    text-align: left; /* keep left for consistency */
+    margin-bottom: 1.25rem;
   }
+
   .servicesItems {
-    align-items: center;
+    gap: 2.5rem;
   }
+
+  .serviceItem {
+    grid-template-columns: 68px 1fr; /* slightly smaller icon on mobile */
+    align-items: start;
+    column-gap: 2.5rem;
+  }
+
+  .serviceIcon { height: 60px; }
 }
+
 
 /* =========================================================
    PORTFOLIO
