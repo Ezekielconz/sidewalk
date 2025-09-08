@@ -4,12 +4,28 @@ import Image from "next/image";
 import Section from "./Section";
 import styles from "../../app/page.module.css";
 
+const CLIENT_LOGOS = [
+  {
+    src: "/portfolio/underthehood.apng",
+    alt: "Under The Hood BBQ logo",
+    href: "https://underthehoodbbq.co.nz/", 
+  },
+  {
+    src: "/portfolio/richmondafc.apng",
+    alt: "Richmond AFC logo",
+    href: "https://www.richmondathletic.co.nz/", 
+  },
+  {
+    src: "/portfolio/kiwiexplorer.apng",
+    alt: "Kiwi Explorers logo",
+    href: "https://www.kiwiexplorers.co.nz/", 
+  },
+];
+
 export default function PortfolioSection() {
   return (
     <Section id="portfolio" title="our work" className={styles.portfolio}>
       <div className={styles.portfolioGrid}>
-        
-        {/* Left text */}
         <div className={styles.portfolioText}>
           <h2 className={styles.portfolioTitle}>featured work</h2>
           <p className={styles.portfolioIntro}>
@@ -18,40 +34,30 @@ export default function PortfolioSection() {
           </p>
         </div>
 
-        {/* Right images */}
-        <div className={styles.portfolioItems}>
-          <div className={styles.portfolioItem}>
-            <Image
-              src="/images/portfolio1.apng"
-              alt="brand 1"
-              width={400}
-              height={250}
-              className={styles.portfolioImage}
-            />
-            <p>brand 1</p>
-          </div>
-
-          <div className={styles.portfolioItem}>
-            <Image
-              src="/images/portfolio2.apng"
-              alt="brand 2"
-              width={400}
-              height={250}
-              className={styles.portfolioImage}
-            />
-            <p>brand 2</p>
-          </div>
-
-          <div className={styles.portfolioItem}>
-            <Image
-              src="/images/portfolio3.apng"
-              alt="brand 3"
-              width={400}
-              height={250}
-              className={styles.portfolioImage}
-            />
-            <p>brand 3</p>
-          </div>
+        <div className={styles.portfolioItems} role="list">
+          {CLIENT_LOGOS.map((logo, i) => (
+            <div className={styles.portfolioItem} role="listitem" key={logo.src}>
+              <a
+                className={styles.logoLink}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${logo.alt} — opens in a new tab`}
+                title="Opens in a new tab"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={160}
+                  height={160}
+                  className={styles.portfolioImage}
+                  sizes="(max-width: 520px) 33vw, (max-width: 900px) 33vw, 160px"
+                  priority={i === 0}
+                  unoptimized
+                />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </Section>

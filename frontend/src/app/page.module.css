@@ -608,9 +608,8 @@
   .serviceIcon { height: 60px; }
 }
 
-
 /* =========================================================
-   PORTFOLIO
+   PORTFOLIO (left copy | right: stacked logo icons)
    ========================================================= */
 .portfolioGrid {
   display: grid;
@@ -647,39 +646,55 @@
 .portfolioItems {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
+  justify-items: center; 
 }
 
 .portfolioItem {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center; 
 }
 
 .portfolioImage {
-  width: 100%;
+  width: 140px;
   height: auto;
+  display: block;
   border-radius: var(--radius);
+  object-fit: contain;
+  background: transparent;
+  transition: transform 0.2s ease;
 }
 
-.portfolioItem p {
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 1rem;
-  color: var(--ink);
-  text-transform: lowercase;
-  margin: 0;
+.portfolioItem:hover .portfolioImage {
+  transform: translateY(-2px);
 }
 
 @media (max-width: 900px) {
   .portfolioGrid {
     grid-template-columns: 1fr;
-    text-align: center;
   }
   .portfolioItems {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr); /* three logos on one row */
+    gap: 0.9rem;
+    align-items: center;
+    justify-items: center;
+  }
+  .portfolioItem {
+    justify-content: center;
+  }
+  .portfolioImage {
+    width: auto;     /* let height drive size so they align */
+    height: 56px;    /* consistent row height */
   }
 }
+
+@media (max-width: 520px) {
+  .portfolioImage {
+    height: 48px;
+  }
+}
+
 
 /* =========================================================
    TECH (two columns on desktop, image behind text on mobile)
@@ -779,6 +794,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;   /* prevent full-width buttons */
+  gap: 0.5rem;
 }
 
 .contactTitle {
@@ -797,11 +814,19 @@
   color: var(--ink);
 }
 
+/* ensure CTAs don’t stretch */
+.contactText .primaryCta,
+.contactText .secondaryCta {
+  align-self: flex-start;
+  width: auto;
+  max-width: max-content;
+}
+
 .contactImage {
   max-width: 100%;
   height: auto;
   display: block;
-  position: relative; 
+  position: relative;
   z-index: 0;
 }
 
@@ -811,15 +836,17 @@
     position: relative;
     grid-template-columns: 1fr;
     place-items: center;
-    text-align: left;         
+    text-align: left;
     min-height: min(88vh, 900px);
     padding: 2rem 0;
   }
 
   .contactText {
     position: relative;
-    z-index: 2;                  
+    z-index: 2;
     width: 100%;
+    align-items: flex-start;      /* prevent children (CTA) from stretching */
+    gap: 0.5rem;
   }
 
   .contactTitle {
@@ -830,17 +857,25 @@
     font-size: clamp(1.1rem, 2.6vw, 1.25rem);
   }
 
+  /* keep button sized to content on mobile */
+  .contactText .primaryCta,
+  .contactText .secondaryCta {
+    align-self: flex-start;
+    width: auto;
+    max-width: max-content;
+  }
+
   .contactImage {
-    position: absolute;        
+    position: absolute;
     inset: 0;
     margin: auto;
     width: min(900px, 92vw);
     height: auto;
-    opacity: 0.18;          
-    pointer-events: none;      
+    opacity: 0.18;
+    pointer-events: none;
   }
-
 }
+
 
 /* =========================================================
    DOT NAV
