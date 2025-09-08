@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import base from "../page.module.css";
 import styles from "./Portfolio.module.css";
@@ -142,28 +141,24 @@ export default function PortfolioPage() {
           </div>
         </Section>
 
-        {/* CTA — ContactSection-style (2 col: left copy, right illustration) */}
+        {/* CTA — Contact-style (2 col: left copy, right illustration on desktop;
+                 image becomes decorative bg on mobile) */}
         <Section id="cta" title="let's talk" className={base.contact}>
-          <div className={base.contactInner}>
+          <div className={`${base.contactInner} ${styles.ctaInner}`}>
             {/* Left content */}
             <div className={styles.contactText}>
               <h2 className={base.contactTitle}>let’s build something great</h2>
-              <p className={base.contactNote}>
-                tell us about your business and goals
-              </p>
+              <p className={base.contactNote}>tell us about your business and goals</p>
               <a className={base.primaryCta} href="/contact">contact us</a>
             </div>
 
-            {/* Right illustration */}
-            <div className={base.contactImage}>
-              <Image
-                src="/images/section-contact.apng"
-                alt="Contact illustration"
-                width={400}
-                height={400}
-                unoptimized
-              />
-            </div>
+            {/* Right illustration (decorative on mobile) */}
+            <img
+              src="/images/section-contact.apng"
+              alt=""
+              aria-hidden="true"
+              className={styles.ctaImage}
+            />
           </div>
         </Section>
       </div>

@@ -122,6 +122,24 @@
 
 .packageBody p { line-height: 1.65; }
 
+/* ---------- CTA (desktop: inline image; mobile: image behind copy) ---------- */
+.contactText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start; /* prevents CTA button from stretching full-width on desktop */
+}
+
+.ctaInner { /* desktop uses base .contactInner grid */ }
+
+.ctaImage {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative; /* normal flow on desktop */
+  z-index: 0;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .flowRow {
@@ -135,4 +153,28 @@
   .packageItem {
     grid-template-columns: 64px 1fr;
   }
+
+  /* CTA overrides for mobile */
+  .ctaInner {
+    position: relative;
+    grid-template-columns: 1fr;         /* stack */
+    place-items: center;
+    text-align: left;
+    min-height: min(88vh, 900px);
+    padding: 2rem 0;
+  }
+
+  .ctaImage {
+    position: absolute;                 /* sit behind the copy */
+    inset: 0;
+    margin: auto;
+    width: min(900px, 92vw);
+    height: auto;
+    opacity: 0.18;
+    pointer-events: none;
+    filter: saturate(105%);
+    z-index: -100; 
+  }
+
+  .contactText { align-items: center; } /* re-center CTA column on mobile */
 }

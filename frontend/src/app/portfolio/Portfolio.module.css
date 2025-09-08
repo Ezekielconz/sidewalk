@@ -1,58 +1,36 @@
-/* hero: slight hue shift but consistent with your palette */
-.hero {
-  background:
-    radial-gradient(1600px 700px at 70% 10%, rgba(255, 215, 200, 0.35), transparent 60%),
-    linear-gradient(135deg, #f4ede3 0%, #f2e7de 55%, #f6e3e3 100%);
-}
+/* CTA (portfolio page) — two columns on desktop, image behind text on mobile */
+.ctaInner { /* desktop uses base .contactInner grid */ }
 
-/* recent/selected background — reuses WhySection grid from base CSS */
-.selected {
-  background:
-    radial-gradient(1000px 500px at 20% 80%, rgba(0, 112, 243, 0.08), transparent 60%),
-    linear-gradient(135deg, #f4ede3, #f6e9df);
-}
-
-/* tweak the image-only stacks */
-.selected :global(.whyItems),
-.cases :global(.whyItems) {
-  gap: 1.5rem;
-}
-.selected :global(.whyIcon),
-.cases :global(.whyIcon) {
-  height: 120px;
-  width: auto;
-  object-fit: cover;
-  transition: transform .2s ease;
-}
-.selected :global(.whyItem:hover) :global(.whyIcon),
-.cases :global(.whyItem:hover) :global(.whyIcon) {
-  transform: translateY(-2px);
-}
-
-/* case studies background — same language, no cards */
-.cases {
-  background:
-    radial-gradient(900px 450px at 80% 20%, rgba(32, 46, 55, 0.08), transparent 60%),
-    linear-gradient(135deg, #f4ede3, #efe7db);
-}
-
-/* CTA uses base .contact grid; this only controls the left column so the button isn't full width */
-.contactText {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-start; /* prevents the CTA button from stretching */
-}
-
-.titleTight {
-  font-family: var(--font-montserrat), sans-serif;
-  font-weight: 800;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--ink);
-  letter-spacing: -0.01em;
+.ctaImage {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative; /* normal flow on desktop */
+  z-index: 0;
 }
 
 @media (max-width: 900px) {
-  .contactText { align-items: center; } /* re-center on mobile */
+  .ctaInner {
+    position: relative;
+    grid-template-columns: 1fr; /* ensure single column on small screens */
+    place-items: center;
+    text-align: left;           /* consistent with other sections */
+    min-height: min(88vh, 900px);
+    padding: 2rem 0;
+  }
+
+  .ctaImage {
+    position: absolute;         /* take image behind the copy */
+    inset: 0;
+    margin: auto;
+    width: min(900px, 92vw);
+    height: auto;
+    opacity: 0.18;              /* subtle background */
+    pointer-events: none;       /* decorative */
+    filter: saturate(105%);
+    z-index: -100; 
+  }
+
+  /* You already center the text on mobile in this module */
+  .contactText { align-items: center; }
 }

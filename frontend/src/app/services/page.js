@@ -215,9 +215,9 @@ export default function ServicesPage() {
           </div>
         </Section>
 
-        {/* CTA — two columns */}
+        {/* CTA — two columns on desktop; image becomes decorative bg on mobile */}
         <Section id="cta" title="let's talk" className={base.contact}>
-          <div className={base.contactInner}>
+          <div className={`${base.contactInner} ${styles.ctaInner}`}>
             <div className={styles.contactText}>
               <h2 className={base.contactTitle}>have a timeline in mind?</h2>
               <p className={base.contactNote}>
@@ -225,15 +225,14 @@ export default function ServicesPage() {
               </p>
               <a className={base.primaryCta} href="/contact">contact us</a>
             </div>
-            <div className={base.contactImage}>
-              <img
-                src="/images/section-contact3.apng"
-                alt="Contact illustration"
-                width={400}
-                height={400}
-                unoptimized
-              />
-            </div>
+
+            {/* Decorative on mobile */}
+            <img
+              src="/images/section-contact3.apng"
+              alt=""
+              aria-hidden="true"
+              className={styles.ctaImage}
+            />
           </div>
         </Section>
       </div>
