@@ -307,7 +307,7 @@
 }
 
 /* =========================================================
-   ABOUT
+   ABOUT (two columns on desktop, image behind text on mobile)
    ========================================================= */
 .aboutGrid {
   display: grid;
@@ -315,6 +315,14 @@
   gap: 2rem;
   text-align: left;
   align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.aboutText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .about h2 {
@@ -353,18 +361,55 @@
   font-weight: 600;
 }
 
+/* Image: inline on desktop, background-y on mobile */
 .aboutImage {
   max-width: 100%;
   height: auto;
   display: block;
+  position: relative;     /* normal flow by default */
+  z-index: 0;
 }
 
+/* ------------------ Mobile treatment ------------------ */
 @media (max-width: 900px) {
   .aboutGrid {
+    position: relative;
     grid-template-columns: 1fr;
+    place-items: center;
+    text-align: left;
+    min-height: min(88vh, 900px);
+    padding: 2rem 0;
   }
+
+  .aboutText {
+    position: relative;
+    z-index: 2;            
+    align-items: left;
+  }
+
+  .about h2 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+
+  .aboutIntro {
+    font-size: clamp(1.1rem, 2.6vw, 1.25rem);
+    max-width: 60ch;
+  }
+
+  .aboutImage {
+    position: absolute;    /* take image behind text */
+    inset: 0;
+    margin: auto;
+    width: min(900px, 92vw);
+    height: auto;
+    opacity: 0.18;         /* subtle background */
+    pointer-events: none;  /* decorative */
+    filter: saturate(105%);
+  }
+
   .actionsLeft {
-    justify-content: center;
+    justify-content: left;
+    margin-top: 1rem;
   }
 }
 

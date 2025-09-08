@@ -8,11 +8,11 @@ export default function AboutSection() {
     <Section id="about" title="about" className={styles.about}>
       <div className={styles.aboutGrid}>
         {/* Left text */}
-        <div>
+        <div className={styles.aboutText}>
           <h2>we are sidewalk</h2>
           <p className={styles.aboutIntro}>
-            a nelson-based creative duo crafting websites and brands with care. 
-            we believe in building digital experiences that feel personal, 
+            a nelson-based creative duo crafting websites and brands with care.
+            we believe in building digital experiences that feel personal,
             local, and timeless.
           </p>
           <div className={styles.actionsLeft}>
@@ -22,10 +22,11 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Right image (animated PNG) */}
+        {/* Right image (becomes decorative background on mobile) */}
         <img
           src="/images/section-about.apng"
-          alt="About Sidewalk illustration"
+          alt=""
+          aria-hidden="true"
           className={styles.aboutImage}
         />
       </div>
