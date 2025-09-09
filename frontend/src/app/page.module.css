@@ -196,11 +196,9 @@
     place-items: center;
     text-align: left;
     min-height: min(88vh, 900px);
-    /* consistent side padding for ALL split sections */
+    /* IMPORTANT: remove inner side padding so width matches why/services */
     box-sizing: border-box;
-    padding: 2rem var(--gutter-x, 1rem);
-    padding-left: max(var(--gutter-x, 1rem), env(safe-area-inset-left));
-    padding-right: max(var(--gutter-x, 1rem), env(safe-area-inset-right));
+    padding: 2rem 0; /* rely on .section's own side gutters */
   }
 
   .splitText { position: relative; z-index: 2; width: 100%; align-items: flex-start; }
