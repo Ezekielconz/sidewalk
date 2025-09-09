@@ -158,28 +158,26 @@
 .contactIcon { width: 22px; height: 22px; display: block; color: var(--brand); opacity: .95; margin-top: .1rem; }
 
 .contactText { font-size: 1rem; line-height: 1.6; color: var(--ink); }
-
-.contactText a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px dotted rgba(32,46,55,.35);
-}
+.contactText a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted rgba(32,46,55,.35); }
 .contactText a:hover { border-bottom-color: rgba(32,46,55,.6); }
 
-/* ========== Mobile: make intro match hero sizes and keep gap small ========== */
+/* ========== Mobile: match hero top spacing and keep gap small ========== */
 @media (max-width: 900px) {
+  /* start the whole section at the top, not vertically centered */
+  .contactBg { align-items: flex-start; }
+
   .introRow {
     position: relative;
     grid-template-columns: 1fr;
-    min-height: auto;              /* don't reintroduce big hero gap */
-    padding: 1rem 0 0;
+    min-height: auto;
+    padding: 10rem 0 0;  
     margin-bottom: .5rem;
   }
 
   .introLeft { position: relative; z-index: 2; align-items: flex-start; text-align: left; }
 
-  .title { font-size: 2.4rem; }    /* matches base.splitTitle mobile */
-  .subtitle { font-size: 1.2rem; } /* matches base.splitNote mobile */
+  .title { font-size: 2.4rem; }     /* hero mobile size */
+  .subtitle { font-size: 1.2rem; }  /* hero mobile size */
 
   /* image becomes decorative background behind text */
   .introRight { position: static; }
@@ -193,7 +191,12 @@
     filter: saturate(105%);
     pointer-events: none;
     z-index: 0;
-  }
+    transform: translateY(4rem);
+    -webkit-transform: translateY(4rem);
+    -moz-transform: translateY(4rem);
+    -ms-transform: translateY(4rem);
+    -o-transform: translateY(4rem);
+}
 
   .formGrid { grid-template-columns: 1fr; margin-top: .5rem; }
   .row { grid-template-columns: 1fr; }
