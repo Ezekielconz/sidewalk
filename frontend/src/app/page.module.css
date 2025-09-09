@@ -193,6 +193,13 @@
     padding: 2rem 0;
   }
 
+  /* hero-only side padding + safe areas */
+  .hero .splitInner {
+    padding: 2rem var(--gutter-x);
+    padding-left: max(var(--gutter-x), env(safe-area-inset-left));
+    padding-right: max(var(--gutter-x), env(safe-area-inset-right));
+  }
+
   .splitText { position: relative; z-index: 2; width: 100%; align-items: flex-start; }
 
   .splitImage {
@@ -200,11 +207,12 @@
     opacity: 0.18; pointer-events: none; filter: saturate(105%);
   }
 
-  .hero { --title-size: clamp(2rem, 5vw, 3rem); --note-size: clamp(1.1rem, 2.6vw, 1.35rem); }
+  /* mobile type sizes via vars (no clamp) */
+  .hero { --title-size: 2.4rem; --note-size: 1.2rem; }
 }
 
 /* =========================================================
-   HERO (uses generic split vars on mobile)
+   HERO
    ========================================================= */
 .heroInner {
   display: grid;
@@ -228,8 +236,8 @@
 @media (max-width: 900px) {
   .heroInner { position: relative; grid-template-columns: 1fr; place-items: center; text-align: left; min-height: min(88vh, 900px); padding: 2rem 0; }
   .heroText { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; align-items: flex-start; }
-  .heroText h1 { font-size: clamp(2rem, 5vw, 3rem); }
-  .heroText .lead { font-size: clamp(1.1rem, 2.6vw, 1.35rem); max-width: 60ch; margin: 1rem 0 2rem; text-align: left; }
+  .heroText h1 { font-size: 2.4rem; }
+  .heroText .lead { font-size: 1.2rem; max-width: 60ch; margin: 1rem 0 2rem; text-align: left; }
   .heroImage { position: absolute; inset: 0; display: grid; place-items: center; z-index: 0; pointer-events: none; }
   .flickerImage { width: min(900px, 92vw); height: auto; opacity: 0.22; filter: saturate(105%); }
   .actionsLeft { justify-content: center; margin-top: 1rem; }
@@ -253,8 +261,8 @@
 @media (max-width: 900px) {
   .aboutGrid { position: relative; grid-template-columns: 1fr; place-items: center; text-align: left; min-height: min(88vh, 900px); padding: 2rem 0; }
   .aboutText { position: relative; z-index: 2; align-items: left; }
-  .about h2 { font-size: clamp(2rem, 5vw, 2.5rem); }
-  .aboutIntro { font-size: clamp(1.1rem, 2.6vw, 1.25rem); max-width: 60ch; }
+  .about h2 { font-size: 2.4rem; }
+  .aboutIntro { font-size: 1.15rem; max-width: 60ch; }
   .aboutImage { position: absolute; inset: 0; margin: auto; width: min(900px, 92vw); height: auto; opacity: 0.18; pointer-events: none; filter: saturate(105%); }
   .actionsLeft { justify-content: left; margin-top: 1rem; }
 }
@@ -431,8 +439,8 @@
 @media (max-width: 900px) {
   .techInner { position: relative; grid-template-columns: 1fr; place-items: center; text-align: left; min-height: min(88vh, 900px); padding: 2rem 0; }
   .techText { position: relative; z-index: 2; width: 100%; }
-  .techTitle { font-size: clamp(2rem, 5vw, 2.5rem); }
-  .techNote { font-size: clamp(1.1rem, 2.6vw, 1.25rem); }
+  .techTitle { font-size: 2.4rem; }
+  .techNote { font-size: 1.15rem; }
   .techImage { position: absolute; inset: 0; margin: auto; width: min(900px, 92vw); height: auto; opacity: 0.18; pointer-events: none; filter: saturate(105%); }
 }
 
@@ -457,8 +465,8 @@
     min-height: min(88vh, 900px); padding: 2rem 0;
   }
   .contactText { position: relative; z-index: 2; width: 100%; align-items: flex-start; gap: 0.5rem; }
-  .contactTitle { font-size: clamp(2rem, 5vw, 2.5rem); }
-  .contactNote { font-size: clamp(1.1rem, 2.6vw, 1.25rem); }
+  .contactTitle { font-size: 2.4rem; }
+  .contactNote { font-size: 1.15rem; }
   .contactText .primaryCta, .contactText .secondaryCta { align-self: flex-start; width: auto; max-width: max-content; }
   .contactImage { position: absolute; inset: 0; margin: auto; width: min(900px, 92vw); height: auto; opacity: 0.18; pointer-events: none; }
 }
@@ -467,7 +475,10 @@
    DOT NAV
    ========================================================= */
 .dotWrap { position: fixed; top: 50%; left: 24px; transform: translateY(-50%); z-index: 950; pointer-events: none; }
-.dots { pointer-events: auto; margin: 0; padding: 0.6rem 0.4rem; list-style: none; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.dots {
+  pointer-events: auto; margin: 0; padding: 0.6rem 0.4rem; list-style: none;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+}
 .dotItem { margin: 0; padding: 0; }
 .dot {
   width: 18px; height: 10px; border-radius: 3px; background-color: var(--ink);
