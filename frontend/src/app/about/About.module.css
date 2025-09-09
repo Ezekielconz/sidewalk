@@ -1,34 +1,30 @@
-/* About.module.css */
-/* Backgrounds mirror your home palette style, but slightly adjusted per section */
-
+/* =========================================================
+   BACKGROUNDS
+   ========================================================= */
 .hero {
   background:
     radial-gradient(1600px 700px at 65% 12%, rgba(255, 215, 200, 0.35), transparent 60%),
     linear-gradient(135deg, #f4ede3 0%, #f5e6dd 55%, #f6e3e3 100%);
 }
-
-/* VALUES */
 .values {
   background:
     radial-gradient(1000px 500px at 20% 20%, rgba(222, 68, 42, 0.08), transparent 60%),
     linear-gradient(135deg, #f4ede3 0%, #f6efe7 100%);
 }
-
-/* TEAM */
 .team {
   background:
     radial-gradient(1000px 500px at 20% 80%, rgba(0, 112, 243, 0.08), transparent 60%),
     linear-gradient(135deg, #f4ede3, #f6e9df);
 }
-
-/* (optional) CTA */
 .cta {
   background:
     radial-gradient(1000px 500px at 50% 20%, rgba(222, 68, 42, 0.10), transparent 60%),
     linear-gradient(135deg, #f4ede3, #f7e8e1);
 }
 
-/* Typography tweaks for section titles on About (non-hero) */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 .titleTight {
   font-family: var(--font-montserrat), sans-serif;
   font-weight: 800;
@@ -39,54 +35,28 @@
   text-transform: none;
 }
 
-/* ---------- VALUES (no cards) ---------- */
-.values :global(.whyItems) {
-  gap: 1.5rem;
-  text-align: left;
+/* =========================================================
+   VALUES ICON CONTAINMENT (handles wide/tall images)
+   ========================================================= */
+.iconCell {
+  width: 80px;
+  height: 72px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.valuesItem h3 {
-  margin: 0 0 .35rem 0;
-  font-size: 1.15rem;
-  font-weight: 600;
-  text-transform: lowercase;
-  color: var(--ink);
-}
-.valuesItem p {
-  margin: 0;
-  line-height: 1.6;
-  color: var(--ink);
-}
-.valuesItem strong {
-  color: var(--brand);
-}
+.iconImg { object-fit: contain; }
 
-/* ---------- TEAM (no cards, no avatar shadow/border) ---------- */
-.team :global(.whyItems) {
-  gap: 1.5rem;
-  text-align: left;
-}
-.person {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.avatarWrap {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 0.6rem;
-}
-.avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 999px;
-  object-fit: cover;
-}
-.person strong {
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.1rem;
-}
+/* =========================================================
+   TEAM
+   ========================================================= */
+.team :global(.whyItems) { gap: 1.5rem; text-align: left; }
+
+.person { display: flex; flex-direction: column; align-items: flex-start; }
+.avatarWrap { width: 100%; display: flex; justify-content: flex-start; margin-bottom: 0.6rem; }
+.avatar { width: 120px; height: 120px; border-radius: 999px; object-fit: cover; }
+.person strong { font-weight: 700; color: var(--ink); margin-bottom: 0.1rem; }
 .role {
   font-family: var(--font-montserrat), sans-serif;
   font-size: 0.95rem;
@@ -96,9 +66,12 @@
   margin-bottom: 0.35rem;
 }
 
-/* Responsive */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 @media (max-width: 900px) {
   .avatar { width: 96px; height: 96px; }
   .person { align-items: center; text-align: center; }
   .avatarWrap { justify-content: center; }
+  .iconCell { width: 68px; height: 60px; }
 }

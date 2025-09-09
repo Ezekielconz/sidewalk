@@ -1,10 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import base from "../page.module.css";
 import styles from "./About.module.css";
 import Section from "../../components/sections/Section";
 
+/* =========================================================
+   SECTION MAP
+   ========================================================= */
 const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "values", label: "Our values" },
@@ -12,6 +16,9 @@ const SECTIONS = [
 ];
 
 export default function AboutPage() {
+  /* =========================================================
+     STATE: ACTIVE DOT
+     ========================================================= */
   const containerRef = useRef(null);
   const [active, setActive] = useState(SECTIONS[0].id);
 
@@ -22,9 +29,7 @@ export default function AboutPage() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible && visible.target && visible.target.id) {
-          setActive(visible.target.id);
-        }
+        if (visible?.target?.id) setActive(visible.target.id);
       },
       { root: null, threshold: 0.6 }
     );
@@ -34,10 +39,12 @@ export default function AboutPage() {
 
   const handleClick = (id) => {
     const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  /* =========================================================
+     RENDER
+     ========================================================= */
   return (
     <>
       {/* Dot nav */}
@@ -59,7 +66,9 @@ export default function AboutPage() {
 
       {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
-        {/* HERO — matches Home split styling */}
+        {/* =========================================================
+            HERO (split layout)
+           ========================================================= */}
         <Section id="hero" title="sidewalk" className={`${base.hero} ${styles.hero}`}>
           <div className={base.splitInner}>
             <div className={base.splitText}>
@@ -76,40 +85,77 @@ export default function AboutPage() {
 
             <img
               src="/images/about-hero.apng"
-              alt="Hand-drawn flicker illustration"
+              alt="hand-drawn flicker illustration"
               className={base.splitImage}
             />
           </div>
         </Section>
 
-        {/* VALUES */}
+        {/* =========================================================
+            VALUES (reuse Home 'why us' layout/typography)
+           ========================================================= */}
         <Section id="values" title="values" className={styles.values}>
-          <div className={base.whyGridOuter}>
-            <div className={base.whyText}>
-              <h2 className={styles.titleTight}>what we stand for</h2>
-              <p className={base.whyIntro}>
-                we focus on clarity, distinctiveness, and speed. design that helps people make decisions with confidence.
+          <div className={base.listSectionGrid}>
+            <div className={base.listSectionText}>
+              <h2 className={base.listSectionTitle}>what we stand for</h2>
+              <p className={base.listSectionIntro}>
+                clarity, distinctiveness, and speed — principles that guide everything we design and build.
               </p>
             </div>
 
-            <div className={base.whyItems}>
-              <div className={styles.valuesItem}>
-                <h3>clarity over clutter</h3>
-                <p>we design for decisions. clear messaging, honest hierarchy, and fast paths to action.</p>
+            <div className={base.listItems}>
+              <div className={base.listItem}>
+                <div className={styles.iconCell}>
+                  <Image
+                    src="/images/about-values-1.apng"
+                    alt="clarity over clutter"
+                    fill
+                    className={styles.iconImg}
+                    sizes="80px"
+                    priority={false}
+                  />
+                </div>
+                <p>
+                  <strong>clarity over clutter</strong> we design for decisions — honest hierarchy, clear messaging, frictionless paths.
+                </p>
               </div>
-              <div className={styles.valuesItem}>
-                <h3>distinctive by default</h3>
-                <p>no templates or shortcuts. we chase memorable details and expressive brand moments.</p>
+
+              <div className={base.listItem}>
+                <div className={styles.iconCell}>
+                  <Image
+                    src="/images/about-values-2.apng"
+                    alt="distinctive by default"
+                    fill
+                    className={styles.iconImg}
+                    sizes="80px"
+                  />
+                </div>
+                <p>
+                  <strong>distinctive by default</strong> no templates; expressive systems that look and feel like you.
+                </p>
               </div>
-              <div className={styles.valuesItem}>
-                <h3>performance as brand</h3>
-                <p>speed shapes perception. accessibility and core web vitals are essential, not optional.</p>
+
+              <div className={base.listItem}>
+                <div className={styles.iconCell}>
+                  <Image
+                    src="/images/about-values-3.apng"
+                    alt="performance as brand"
+                    fill
+                    className={styles.iconImg}
+                    sizes="80px"
+                  />
+                </div>
+                <p>
+                  <strong>performance as brand</strong> speed and accessibility shape perception — we bake them in from day one.
+                </p>
               </div>
             </div>
           </div>
         </Section>
 
-        {/* TEAM */}
+        {/* =========================================================
+            TEAM
+           ========================================================= */}
         <Section id="team" title="team" className={styles.team}>
           <div className={base.whyGridOuter}>
             <div className={base.whyText}>

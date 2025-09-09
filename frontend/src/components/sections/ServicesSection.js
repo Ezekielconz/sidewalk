@@ -17,39 +17,46 @@ export default function ServicesSection() {
 
         <div className={styles.listItems}>
           <div className={styles.listItem}>
-            <Image
-              src="/images/section-services-1.apng"
-              alt="brand identity"
-              width={120}
-              height={120}
-              className={styles.listIcon}
-            />
+            <div className={styles.listIconWrap}>
+              <Image
+                src="/images/section-services-1.apng"
+                alt="brand identity"
+                fill
+                className={styles.listIcon}
+                sizes="(max-width: 900px) 68px, 80px"
+                priority
+              />
+            </div>
             <p>
               <strong>brand identity</strong> naming, logo, colour, typography.
             </p>
           </div>
 
           <div className={styles.listItem}>
-            <Image
-              src="/images/section-services-2.apng"
-              alt="web design & development"
-              width={120}
-              height={120}
-              className={styles.listIcon}
-            />
+            <div className={styles.listIconWrap}>
+              <Image
+                src="/images/section-services-2.apng"
+                alt="web design & development"
+                fill
+                className={styles.listIcon}
+                sizes="(max-width: 900px) 68px, 80px"
+              />
+            </div>
             <p>
               <strong>web design &amp; development</strong> static (portfolio), CMS, e-commerce (Shopify) sites.
             </p>
           </div>
 
           <div className={styles.listItem}>
-            <Image
-              src="/images/section-services-3.apng"
-              alt="care & growth"
-              width={120}
-              height={120}
-              className={styles.listIcon}
-            />
+            <div className={styles.listIconWrap}>
+              <Image
+                src="/images/section-services-3.apng"
+                alt="care & growth"
+                fill
+                className={styles.listIcon}
+                sizes="(max-width: 900px) 68px, 80px"
+              />
+            </div>
             <p>
               <strong>care &amp; growth</strong> hosting, monitoring, SEO, content support, and continuous improvements.
             </p>

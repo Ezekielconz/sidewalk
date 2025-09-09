@@ -281,15 +281,21 @@
   text-align: left;
 }
 
-.listIcon,
-.whyIcon,
-.serviceIcon {
+/* Center ANY aspect-ratio icon and contain it in a fixed box */
+.listIconWrap {
+  width: 80px;
   height: 72px;
-  width: auto;
-  object-fit: contain;
-  margin: 0;
+  position: relative;            /* required for next/image fill */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.listIcon {
+  object-fit: contain;           /* keep long/tall images contained */
+}
+
+/* Copy */
 .listItem p,
 .whyItem p,
 .serviceItem p {
@@ -310,17 +316,20 @@
   margin-bottom: 0.25rem;
 }
 
-/* Mobile for icon-list sections */
+/* Mobile */
 @media (max-width: 900px) {
   .listSectionGrid,
   .whyGridOuter,
   .servicesGrid { grid-template-columns: 1fr; }
+
   .listSectionText,
   .whyText,
   .servicesText { text-align: left; margin-bottom: 1.25rem; }
+
   .listItems,
   .whyItems,
   .servicesItems { gap: 1.5rem; }
+
   .listItem,
   .whyItem,
   .serviceItem {
@@ -328,9 +337,11 @@
     align-items: start;
     column-gap: 1.25rem;
   }
-  .listIcon,
-  .whyIcon,
-  .serviceIcon { height: 60px; }
+
+  .listIconWrap {
+    width: 68px;
+    height: 60px;
+  }
 }
 
 /* =========================================================

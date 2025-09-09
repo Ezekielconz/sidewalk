@@ -100,7 +100,7 @@ export default function ServicesPage() {
               <div className={styles.whatRow}>
                 <div className={styles.whatText}>
                   <img
-                    src="/images/services-what-web.apng"
+                    src="/images/services-what-1.apng"
                     alt=""
                     aria-hidden="true"
                     className={styles.whatIcon}
@@ -115,7 +115,7 @@ export default function ServicesPage() {
               <div className={styles.whatRow}>
                 <div className={styles.whatText}>
                   <img
-                    src="/images/services-what-dev.apng"
+                    src="/images/services-what-2.apng"
                     alt=""
                     aria-hidden="true"
                     className={styles.whatIcon}
@@ -130,7 +130,7 @@ export default function ServicesPage() {
               <div className={styles.whatRow}>
                 <div className={styles.whatText}>
                   <img
-                    src="/images/services-what-brand.apng"
+                    src="/images/services-what-3.apng"
                     alt=""
                     aria-hidden="true"
                     className={styles.whatIcon}
