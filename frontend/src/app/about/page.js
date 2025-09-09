@@ -99,7 +99,7 @@ export default function AboutPage() {
             <div className={base.listSectionText}>
               <h2 className={base.listSectionTitle}>what we stand for</h2>
               <p className={base.listSectionIntro}>
-                clarity, distinctiveness, and speed — principles that guide everything we design and build.
+                clarity, distinctiveness, and speed. principles that guide everything we design and build.
               </p>
             </div>
 
@@ -116,7 +116,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <p>
-                  <strong>clarity over clutter</strong> we design for decisions — honest hierarchy, clear messaging, frictionless paths.
+                  <strong>clarity over clutter</strong> we design for decisions, honest hierarchy, clear messaging, frictionless paths.
                 </p>
               </div>
 
@@ -146,7 +146,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <p>
-                  <strong>performance as brand</strong> speed and accessibility shape perception — we bake them in from day one.
+                  <strong>performance as brand</strong> speed and accessibility shape perception. we bake them in from day one.
                 </p>
               </div>
             </div>
