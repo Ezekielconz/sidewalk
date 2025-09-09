@@ -2,32 +2,27 @@
 
 import { useState } from "react";
 import base from "../page.module.css";
-import styles from "./Contact.module.css";
 import Section from "../../components/sections/Section";
+import styles from "./Contact.module.css";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    projectType: "",
-    budget: "",
     message: "",
     company: "", // honeypot
-    consent: false,
   });
   const [status, setStatus] = useState({ state: "idle", message: "" });
 
   const onChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm((f) => ({ ...f, [name]: type === "checkbox" ? checked : value }));
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
   };
 
   const validate = () => {
     if (!form.name.trim()) return "Please enter your name.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return "Please enter a valid email.";
-    if (!form.projectType) return "Please choose a project type.";
     if (!form.message.trim()) return "Tell us a bit about your project.";
-    if (!form.consent) return "Please accept the contact consent.";
     if (form.company) return "Spam detected."; // honeypot
     return null;
   };
@@ -47,20 +42,17 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          company: form.company, // honeypot
+        }),
       });
       const data = await res.json();
       if (!res.ok || !data?.ok) throw new Error(data?.error || "Failed to send");
       setStatus({ state: "success", message: "Thanks! We’ll get back to you shortly." });
-      setForm({
-        name: "",
-        email: "",
-        projectType: "",
-        budget: "",
-        message: "",
-        company: "",
-        consent: false,
-      });
+      setForm({ name: "", email: "", message: "", company: "" });
     } catch (err) {
       setStatus({ state: "error", message: err.message || "Something went wrong." });
     }
@@ -68,7 +60,7 @@ export default function ContactPage() {
 
   return (
     <Section id="contact" title="contact" className={styles.contactBg}>
-      <div className={`${base.content} ${styles.contactWrap}`}>
+      <div className={styles.contactWrap}>
         {/* ROW 1: title/subtitle (left) + image (right) */}
         <div className={styles.introRow}>
           <div className={styles.introLeft}>
@@ -80,7 +72,8 @@ export default function ContactPage() {
           <div className={styles.introRight}>
             <img
               src="/images/contact-hero.apng"
-              alt="contact illustration"
+              alt=""
+              aria-hidden="true"
               className={styles.introImage}
             />
           </div>
@@ -128,41 +121,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className={styles.row}>
-              <div className={styles.field}>
-                <label htmlFor="projectType">project type *</label>
-                <select
-                  id="projectType"
-                  name="projectType"
-                  value={form.projectType}
-                  onChange={onChange}
-                  required
-                >
-                  <option value="">select…</option>
-                  <option value="new-site">new site</option>
-                  <option value="rebuild">redesign / rebuild</option>
-                  <option value="landing">landing page</option>
-                  <option value="ongoing">ongoing partnership</option>
-                </select>
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="budget">budget (nz$)</label>
-                <select
-                  id="budget"
-                  name="budget"
-                  value={form.budget}
-                  onChange={onChange}
-                >
-                  <option value="">select…</option>
-                  <option value="under-5k">under 5k</option>
-                  <option value="5-10k">5–10k</option>
-                  <option value="10-20k">10–20k</option>
-                  <option value="20k-plus">20k+</option>
-                </select>
-              </div>
-            </div>
-
             <div className={styles.field}>
               <label htmlFor="message">project details *</label>
               <textarea
@@ -175,17 +133,7 @@ export default function ContactPage() {
               />
             </div>
 
-            <label className={styles.checkbox}>
-              <input
-                type="checkbox"
-                name="consent"
-                checked={form.consent}
-                onChange={onChange}
-                required
-              />
-              <span>I’m okay with you contacting me about this enquiry.</span>
-            </label>
-
+            {/* Single primary CTA button (same style as elsewhere) */}
             <div className={base.actionsLeft} style={{ marginTop: ".5rem" }}>
               <button
                 type="submit"
@@ -194,9 +142,6 @@ export default function ContactPage() {
               >
                 {status.state === "loading" ? "sending…" : "send message"}
               </button>
-              <a className={base.secondaryCta} href="mailto:hello@sidewalk.studio">
-                email us directly
-              </a>
             </div>
 
             <p
