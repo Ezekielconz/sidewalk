@@ -39,6 +39,13 @@
 .section h2 { margin: 0 0 1rem 0; font-size: 2.5rem; color: var(--ink); }
 .lead { margin: 1rem auto 2rem; font-size: 1.25rem; line-height: 1.6; max-width: 60ch; color: var(--ink); }
 
+/* Make split titles identical whether they're h1 or h2 */
+.section h1.splitTitle,
+.section h2.splitTitle {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
 /* =========================================================
    SECTION TITLES
    ========================================================= */
@@ -190,9 +197,10 @@
     text-align: left;
     min-height: min(88vh, 900px);
     /* consistent side padding for ALL split sections */
-    padding: 2rem var(--gutter-x);
-    padding-left: max(var(--gutter-x), env(safe-area-inset-left));
-    padding-right: max(var(--gutter-x), env(safe-area-inset-right));
+    box-sizing: border-box;
+    padding: 2rem var(--gutter-x, 1rem);
+    padding-left: max(var(--gutter-x, 1rem), env(safe-area-inset-left));
+    padding-right: max(var(--gutter-x, 1rem), env(safe-area-inset-right));
   }
 
   .splitText { position: relative; z-index: 2; width: 100%; align-items: flex-start; }
@@ -205,6 +213,12 @@
   /* unified mobile sizes (no clamp) */
   .splitTitle { font-size: 2.4rem; }
   .splitNote  { font-size: 1.2rem; }
+
+  /* Ensure Hero (h1) and About (h2) titles are identical on mobile */
+  .section h1.splitTitle,
+  .section h2.splitTitle {
+    font-size: 2.4rem;
+  }
 }
 
 /* =========================================================
