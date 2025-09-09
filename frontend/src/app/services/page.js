@@ -61,7 +61,7 @@ export default function ServicesPage() {
 
       {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
-        {/* HERO — uses split layout to match Home/About */}
+        {/* HERO — split layout to match Home/About */}
         <Section id="hero" title="services" className={`${base.hero} ${styles.hero}`}>
           <div className={base.splitInner}>
             <div className={base.splitText}>
@@ -83,25 +83,63 @@ export default function ServicesPage() {
           </div>
         </Section>
 
-        {/* WHAT WE DO */}
+        {/* WHAT WE DO — mirror WORKFLOW row style */}
         <Section id="services" title="what we do" className={styles.services}>
-          <div className={base.servicesGrid}>
-            <div className={base.servicesText}>
+          <div className={base.whyGridOuter}>
+            {/* Left: title + intro */}
+            <div className={base.whyText}>
               <h2 className={base.servicesTitle}>craft & code</h2>
               <p className={base.servicesIntro}>
-                we design and build websites and brands that feel simple, fast, and distinctive. every project is collaborative and tailored to what your business needs.
+                we design and build websites and brands that feel simple, fast, and distinctive.
+                every project is collaborative and tailored to what your business needs.
               </p>
             </div>
 
-            <div className={base.servicesItems}>
-              <div className={base.serviceItem}>
-                <p><strong>web design</strong>landing pages, marketing sites, and thoughtful layouts that put content first.</p>
+            {/* Right: rows (icon + title + copy) */}
+            <div className={styles.whatList}>
+              <div className={styles.whatRow}>
+                <div className={styles.whatText}>
+                  <img
+                    src="/images/services-what-web.apng"
+                    alt=""
+                    aria-hidden="true"
+                    className={styles.whatIcon}
+                  />
+                  <div className={styles.whatBody}>
+                    <strong>web design</strong>
+                    <p>landing pages, marketing sites, and thoughtful layouts that put content first.</p>
+                  </div>
+                </div>
               </div>
-              <div className={base.serviceItem}>
-                <p><strong>development</strong>performance-focused builds, responsive, accessible for everyone.</p>
+
+              <div className={styles.whatRow}>
+                <div className={styles.whatText}>
+                  <img
+                    src="/images/services-what-dev.apng"
+                    alt=""
+                    aria-hidden="true"
+                    className={styles.whatIcon}
+                  />
+                  <div className={styles.whatBody}>
+                    <strong>development</strong>
+                    <p>performance-focused builds, responsive, accessible for everyone.</p>
+                  </div>
+                </div>
               </div>
-              <div className={base.serviceItem}>
-                <p><strong>brand & content</strong>identity, guidelines, and the details that make your business memorable.</p>
+
+              <div className={styles.whatRow}>
+                <div className={styles.whatText}>
+                  <img
+                    src="/images/services-what-brand.apng"
+                    alt=""
+                    aria-hidden="true"
+                    className={styles.whatIcon}
+                  />
+                  <div className={styles.whatBody}>
+                    <strong>brand & content</strong>
+                    <p>identity, guidelines, and the details that make your business memorable.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
