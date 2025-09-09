@@ -6,31 +6,24 @@ import styles from "../../app/page.module.css";
 export default function HeroSection() {
   return (
     <Section id="hero" title="sidewalk" className={styles.hero}>
-      <div className={styles.heroInner}>
-        {/* Text on top, centered */}
-        <div className={styles.heroText}>
-          <h1>breakaway from the cookiecutter</h1>
-          <p className={styles.lead}>
+      <div className={styles.splitInner}>
+        <div className={styles.splitText}>
+          <h1 className={styles.splitTitle}>breakaway from the cookiecutter</h1>
+          <p className={styles.splitNote}>
             handcrafted websites and designs to express who you are
           </p>
           <div className={styles.actionsLeft}>
-            <a className={styles.primaryCta} href="/contact">
-              start a project
-            </a>
-            <a className={styles.secondaryCta} href="/portfolio">
-              see our work
-            </a>
+            <a className={styles.primaryCta} href="/contact">start a project</a>
+            <a className={styles.secondaryCta} href="/portfolio">see our work</a>
           </div>
         </div>
 
-        {/* Decorative image centered behind text */}
-        <div className={styles.heroImage} aria-hidden="true">
-          <img
-            src="/images/section-hero.apng"
-            alt=""
-            className={styles.flickerImage}
-          />
-        </div>
+        <img
+          src="/images/section-hero.apng"
+          alt=""
+          aria-hidden="true"
+          className={styles.splitImage}
+        />
       </div>
     </Section>
   );
