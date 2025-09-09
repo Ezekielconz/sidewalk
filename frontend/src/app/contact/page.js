@@ -137,7 +137,7 @@ export default function ContactPage() {
             <div className={base.actionsLeft} style={{ marginTop: ".5rem" }}>
               <button
                 type="submit"
-                className={base.primaryCta}
+                className={styles.submitBtn}   // <- was base.primaryCta
                 disabled={status.state === "loading"}
               >
                 {status.state === "loading" ? "sending…" : "send message"}

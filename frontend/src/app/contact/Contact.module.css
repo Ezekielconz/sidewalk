@@ -90,6 +90,11 @@
   gap: .35rem;
 }
 
+/* space between the name/email row and the message field */
+.row + .field {
+  margin-top: 1rem;
+}
+
 .field label {
   font-family: var(--font-montserrat), sans-serif;
   font-weight: 600;
@@ -147,13 +152,46 @@
   text-decoration: underline;
 }
 
-/* ========== Mobile: match the split pattern site-wide ========== */
+/* === Custom submit button (own styling; no border) === */
+.submitBtn {
+  appearance: none;
+  border: none;                 /* no border */
+  background: var(--brand);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: var(--cta-radius);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.submitBtn:hover {
+  background: var(--brand-hover);
+  transform: translateY(-2px);
+}
+.submitBtn:focus-visible {
+  outline: 3px solid rgba(222,68,42,.35);
+  outline-offset: 2px;
+}
+.submitBtn:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========== Mobile: tighten spacing to remove the big gap ========== */
 @media (max-width: 900px) {
+  /* start the whole section at the top, not vertically centered */
+  .contactBg { align-items: flex-start; }
+
   .introRow {
     position: relative;
     grid-template-columns: 1fr;
-    min-height: min(88vh, 900px);
-    padding: 2rem 0;
+    /* remove tall hero height and extra padding */
+    min-height: auto;
+    padding: 1rem 0 0;
+    margin-bottom: .75rem; /* tiny handoff into the form */
   }
 
   .introLeft { position: relative; z-index: 2; align-items: flex-start; text-align: left; }
@@ -172,7 +210,11 @@
     z-index: 0;
   }
 
-  .formGrid { grid-template-columns: 1fr; }
+  .formGrid {
+    grid-template-columns: 1fr;
+    margin-top: .75rem; /* was 1.75rem */
+  }
+
   .row { grid-template-columns: 1fr; }
   .contactSide { text-align: left; }
 }
