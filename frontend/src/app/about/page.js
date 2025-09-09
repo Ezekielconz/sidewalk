@@ -22,7 +22,9 @@ export default function AboutPage() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActive(visible.target.id);
+        if (visible && visible.target && visible.target.id) {
+          setActive(visible.target.id);
+        }
       },
       { root: null, threshold: 0.6 }
     );
@@ -57,24 +59,26 @@ export default function AboutPage() {
 
       {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
-        {/* HERO */}
+        {/* HERO — matches Home split styling */}
         <Section id="hero" title="sidewalk" className={`${base.hero} ${styles.hero}`}>
-          <div className={base.heroInner}>
-            <div className={base.heroText}>
-              <h1>we are sidewalk</h1>
-              <p className={base.lead}>we’re a nelson-based duo passionate about crafting websites and building brands that connect. At Sidewalk, we bring design and development together to help companies stand out online.</p>
+          <div className={base.splitInner}>
+            <div className={base.splitText}>
+              <h1 className={base.splitTitle}>we are sidewalk</h1>
+              <p className={base.splitNote}>
+                we’re a nelson-based duo passionate about crafting websites and building brands that connect.
+                at sidewalk, we bring design and development together to help companies stand out online.
+              </p>
               <div className={base.actionsLeft}>
                 <a className={base.primaryCta} href="/contact">start a project</a>
                 <a className={base.secondaryCta} href="/portfolio">see our work</a>
               </div>
             </div>
-            <div className={base.heroImage}>
-              <img
-                src="/images/about-hero.apng"
-                alt="Hand-drawn flicker illustration"
-                className={base.flickerImage}
-              />
-            </div>
+
+            <img
+              src="/images/about-hero.apng"
+              alt="Hand-drawn flicker illustration"
+              className={base.splitImage}
+            />
           </div>
         </Section>
 
@@ -108,7 +112,6 @@ export default function AboutPage() {
         {/* TEAM */}
         <Section id="team" title="team" className={styles.team}>
           <div className={base.whyGridOuter}>
-            {/* Left column */}
             <div className={base.whyText}>
               <h2 className={styles.titleTight}>the people</h2>
               <p className={base.whyIntro}>
@@ -116,29 +119,18 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Right column */}
             <div className={base.whyItems}>
-              {/* Ezekiel */}
               <div className={styles.person}>
                 <div className={styles.avatarWrap}>
-                  <img
-                    className={styles.avatar}
-                    src="/images/team_ezekiel.apng"
-                    alt="Ezekiel Brown"
-                  />
+                  <img className={styles.avatar} src="/images/team_ezekiel.apng" alt="Ezekiel Brown" />
                 </div>
                 <strong>Ezekiel Brown</strong>
                 <div className={styles.role}>co-founder — tech lead & web design</div>
               </div>
 
-              {/* Keegan */}
               <div className={styles.person}>
                 <div className={styles.avatarWrap}>
-                  <img
-                    className={styles.avatar}
-                    src="/images/team_keegan.apng"
-                    alt="Keegan Jeffries"
-                  />
+                  <img className={styles.avatar} src="/images/team_keegan.apng" alt="Keegan Jeffries" />
                 </div>
                 <strong>Keegan Jeffries</strong>
                 <div className={styles.role}>co-founder — sales & marketing</div>

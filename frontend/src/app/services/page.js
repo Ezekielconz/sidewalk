@@ -24,7 +24,9 @@ export default function ServicesPage() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActive(visible.target.id);
+        if (visible && visible.target && visible.target.id) {
+          setActive(visible.target.id);
+        }
       },
       { root: null, threshold: 0.6 }
     );
@@ -40,6 +42,7 @@ export default function ServicesPage() {
 
   return (
     <>
+      {/* Dot nav */}
       <nav className={base.dotWrap} aria-label="Section navigation">
         <ul className={base.dots}>
           {SECTIONS.map((s) => (
@@ -56,12 +59,14 @@ export default function ServicesPage() {
         </ul>
       </nav>
 
+      {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
+        {/* HERO — uses split layout to match Home/About */}
         <Section id="hero" title="services" className={`${base.hero} ${styles.hero}`}>
-          <div className={base.heroInner}>
-            <div className={base.heroText}>
-              <h1>build something people love to use</h1>
-              <p className={base.lead}>
+          <div className={base.splitInner}>
+            <div className={base.splitText}>
+              <h1 className={base.splitTitle}>build something people love to use</h1>
+              <p className={base.splitNote}>
                 we design and develop fast websites and clear brands. small team, close collaboration, outcomes you can measure.
               </p>
               <div className={base.actionsLeft}>
@@ -69,16 +74,16 @@ export default function ServicesPage() {
                 <a className={base.secondaryCta} href="/portfolio">see our work</a>
               </div>
             </div>
-            <div className={base.heroImage}>
-              <img
-                src="/images/services-hero.apng"
-                alt="hand-drawn flicker illustration"
-                className={base.flickerImage}
-              />
-            </div>
+
+            <img
+              src="/images/services-hero.apng"
+              alt="hand-drawn flicker illustration"
+              className={base.splitImage}
+            />
           </div>
         </Section>
 
+        {/* WHAT WE DO */}
         <Section id="services" title="what we do" className={styles.services}>
           <div className={base.servicesGrid}>
             <div className={base.servicesText}>
@@ -90,21 +95,19 @@ export default function ServicesPage() {
 
             <div className={base.servicesItems}>
               <div className={base.serviceItem}>
-                <h3>web design</h3>
-                <p>landing pages, marketing sites, and thoughtful layouts that put content first.</p>
+                <p><strong>web design</strong>landing pages, marketing sites, and thoughtful layouts that put content first.</p>
               </div>
               <div className={base.serviceItem}>
-                <h3>development</h3>
-                <p>performance-focused builds, responsive, accessible for everyone.</p>
+                <p><strong>development</strong>performance-focused builds, responsive, accessible for everyone.</p>
               </div>
               <div className={base.serviceItem}>
-                <h3>brand & content</h3>
-                <p>identity, guidelines, and the details that make your business memorable.</p>
+                <p><strong>brand & content</strong>identity, guidelines, and the details that make your business memorable.</p>
               </div>
             </div>
           </div>
         </Section>
 
+        {/* WORKFLOW */}
         <Section id="workflow" title="workflow" className={styles.workflow}>
           <div className={base.whyGridOuter}>
             <div className={base.whyText}>
@@ -158,6 +161,7 @@ export default function ServicesPage() {
           </div>
         </Section>
 
+        {/* PACKAGES */}
         <Section id="packages" title="packages" className={styles.packages}>
           <div className={base.whyGridOuter}>
             <div className={base.whyText}>
@@ -195,6 +199,7 @@ export default function ServicesPage() {
           </div>
         </Section>
 
+        {/* CTA */}
         <Section id="cta" title="let's talk" className={base.contact}>
           <div className={`${base.contactInner} ${styles.ctaInner}`}>
             <div className={styles.contactText}>

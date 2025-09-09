@@ -31,7 +31,9 @@ export default function PortfolioPage() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActive(visible.target.id);
+        if (visible && visible.target && visible.target.id) {
+          setActive(visible.target.id);
+        }
       },
       { root: null, threshold: 0.6 }
     );
@@ -66,12 +68,12 @@ export default function PortfolioPage() {
 
       {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
-        {/* HERO */}
+        {/* HERO — now uses split layout to match Home/About exactly */}
         <Section id="hero" title="portfolio" className={`${base.portfolio} ${styles.hero}`}>
-          <div className={base.heroInner}>
-            <div className={base.heroText}>
-              <h1>made by sidewalk</h1>
-              <p className={base.lead}>
+          <div className={base.splitInner}>
+            <div className={base.splitText}>
+              <h1 className={base.splitTitle}>made by sidewalk</h1>
+              <p className={base.splitNote}>
                 a collection of websites and brands we’ve designed, built, and launched with our clients.
               </p>
               <div className={base.actionsLeft}>
@@ -79,13 +81,12 @@ export default function PortfolioPage() {
                 <a className={base.secondaryCta} href="/services">see services</a>
               </div>
             </div>
-            <div className={base.heroImage}>
-              <img
-                src="/images/portfolio-hero.apng"
-                alt="hero illustration"
-                className={base.flickerImage}
-              />
-            </div>
+
+            <img
+              src="/images/portfolio-hero.apng"
+              alt="hero illustration"
+              className={base.splitImage}
+            />
           </div>
         </Section>
 
@@ -141,8 +142,7 @@ export default function PortfolioPage() {
           </div>
         </Section>
 
-        {/* CTA — Contact-style (2 col: left copy, right illustration on desktop;
-                 image becomes decorative bg on mobile) */}
+        {/* CTA — Contact-style (2 col on desktop; image becomes bg on mobile) */}
         <Section id="cta" title="let's talk" className={base.contact}>
           <div className={`${base.contactInner} ${styles.ctaInner}`}>
             {/* Left content */}
