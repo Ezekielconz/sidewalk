@@ -83,7 +83,7 @@ export default function PortfolioPage() {
             </div>
 
             <img
-              src="/images/portfolio-hero.apng"
+              src="/images/portfolio-hero.webp"
               alt="hero illustration"
               className={base.splitImage}
             />
@@ -154,7 +154,7 @@ export default function PortfolioPage() {
 
             {/* Right illustration (decorative on mobile) */}
             <img
-              src="/images/section-contact.apng"
+              src="/images/section-contact.webp"
               alt=""
               aria-hidden="true"
               className={styles.ctaImage}

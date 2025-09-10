@@ -84,7 +84,7 @@ export default function AboutPage() {
             </div>
 
             <img
-              src="/images/about-hero.apng"
+              src="/images/about-hero.webp"
               alt="hand-drawn flicker illustration"
               className={base.splitImage}
             />
@@ -107,7 +107,7 @@ export default function AboutPage() {
               <div className={base.listItem}>
                 <div className={styles.iconCell}>
                   <Image
-                    src="/images/about-values-1.apng"
+                    src="/images/about-values-1.webp"
                     alt="clarity over clutter"
                     fill
                     className={styles.iconImg}
@@ -123,7 +123,7 @@ export default function AboutPage() {
               <div className={base.listItem}>
                 <div className={styles.iconCell}>
                   <Image
-                    src="/images/about-values-2.apng"
+                    src="/images/about-values-2.webp"
                     alt="distinctive by default"
                     fill
                     className={styles.iconImg}
@@ -138,7 +138,7 @@ export default function AboutPage() {
               <div className={base.listItem}>
                 <div className={styles.iconCell}>
                   <Image
-                    src="/images/about-values-3.apng"
+                    src="/images/about-values-3.webp"
                     alt="performance as brand"
                     fill
                     className={styles.iconImg}
@@ -168,7 +168,7 @@ export default function AboutPage() {
             <div className={base.whyItems}>
               <div className={styles.person}>
                 <div className={styles.avatarWrap}>
-                  <img className={styles.avatar} src="/images/team_ezekiel.apng" alt="Ezekiel Brown" />
+                  <img className={styles.avatar} src="/images/team_ezekiel.webp" alt="Ezekiel Brown" />
                 </div>
                 <strong>Ezekiel Brown</strong>
                 <div className={styles.role}>co-founder — tech lead & web design</div>
@@ -176,7 +176,7 @@ export default function AboutPage() {
 
               <div className={styles.person}>
                 <div className={styles.avatarWrap}>
-                  <img className={styles.avatar} src="/images/team_keegan.apng" alt="Keegan Jeffries" />
+                  <img className={styles.avatar} src="/images/team_keegan.webp" alt="Keegan Jeffries" />
                 </div>
                 <strong>Keegan Jeffries</strong>
                 <div className={styles.role}>co-founder — sales & marketing</div>

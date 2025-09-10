@@ -20,8 +20,8 @@ export default function AboutSection() {
         </div>
 
         <img
-          src="/images/section-about.apng"
-          alt=""
+          src="/images/section-about.webp"
+          alt="Hand-drawn animated coffee mug illustration"
           aria-hidden="true"
           className={styles.splitImage}
         />

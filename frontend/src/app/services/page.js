@@ -76,7 +76,7 @@ export default function ServicesPage() {
             </div>
 
             <img
-              src="/images/services-hero.apng"
+              src="/images/services-hero.webp"
               alt="hand-drawn flicker illustration"
               className={base.splitImage}
             />
@@ -100,7 +100,7 @@ export default function ServicesPage() {
               <div className={styles.whatRow}>
                 <div className={styles.whatText}>
                   <img
-                    src="/images/services-what-1.apng"
+                    src="/images/services-what-1.webp"
                     alt=""
                     aria-hidden="true"
                     className={styles.whatIcon}
@@ -115,7 +115,7 @@ export default function ServicesPage() {
               <div className={styles.whatRow}>
                 <div className={styles.whatText}>
                   <img
-                    src="/images/services-what-2.apng"
+                    src="/images/services-what-2.webp"
                     alt=""
                     aria-hidden="true"
                     className={styles.whatIcon}
@@ -130,7 +130,7 @@ export default function ServicesPage() {
               <div className={styles.whatRow}>
                 <div className={styles.whatText}>
                   <img
-                    src="/images/services-what-3.apng"
+                    src="/images/services-what-3.webp"
                     alt=""
                     aria-hidden="true"
                     className={styles.whatIcon}
@@ -158,7 +158,7 @@ export default function ServicesPage() {
             <div className={styles.flowList}>
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-1.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <img src="/images/services-workflow-1.webp" alt="" aria-hidden="true" className={styles.flowIcon} />
                   <div className={styles.flowBody}>
                     <strong>01 — discover</strong>
                     <p>we listen first. understanding your goals, audience, and challenges. this shared understanding sets the direction.</p>
@@ -168,7 +168,7 @@ export default function ServicesPage() {
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-2.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <img src="/images/services-workflow-2.webp" alt="" aria-hidden="true" className={styles.flowIcon} />
                   <div className={styles.flowBody}>
                     <strong>02 — design</strong>
                     <p>we explore ideas, create layouts, and shape a brand presence that feels distinctive and easy to use.</p>
@@ -178,7 +178,7 @@ export default function ServicesPage() {
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-3.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <img src="/images/services-workflow-3.webp" alt="" aria-hidden="true" className={styles.flowIcon} />
                   <div className={styles.flowBody}>
                     <strong>03 — build</strong>
                     <p>we turn designs into fast, responsive, and accessible websites, engineered for long-term performance.</p>
@@ -188,7 +188,7 @@ export default function ServicesPage() {
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-4.apng" alt="" aria-hidden="true" className={styles.flowIcon} />
+                  <img src="/images/services-workflow-4.webp" alt="" aria-hidden="true" className={styles.flowIcon} />
                   <div className={styles.flowBody}>
                     <strong>04 — launch</strong>
                     <p>we prepare every detail for a smooth launch, then support you with updates, care, and improvements.</p>
@@ -211,7 +211,7 @@ export default function ServicesPage() {
 
             <div className={styles.packageList}>
               <div className={styles.packageItem}>
-                <img className={styles.packageIcon} src="/images/services-packages-1.apng" alt="seed package icon" />
+                <img className={styles.packageIcon} src="/images/services-packages-1.webp" alt="seed package icon" />
                 <div className={styles.packageBody}>
                   <strong>seed</strong>
                   <p>a clean, fast website that covers the basics. perfect for portfolios, landing pages, or small businesses starting out.</p>
@@ -219,7 +219,7 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles.packageItem}>
-                <img className={styles.packageIcon} src="/images/services-packages-2.apng" alt="growth package icon" />
+                <img className={styles.packageIcon} src="/images/services-packages-2.webp" alt="growth package icon" />
                 <div className={styles.packageBody}>
                   <strong>growth</strong>
                   <p>a custom design and build with room to expand. ideal for businesses ready to stand out with a distinctive brand and marketing site.</p>
@@ -227,7 +227,7 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles.packageItem}>
-                <img className={styles.packageIcon} src="/images/services-packages-3.apng" alt="thrive package icon" />
+                <img className={styles.packageIcon} src="/images/services-packages-3.webp" alt="thrive package icon" />
                 <div className={styles.packageBody}>
                   <strong>thrive</strong>
                   <p>strategy, design, development, and ongoing care. best for established businesses that want a long-term partner.</p>
@@ -248,7 +248,7 @@ export default function ServicesPage() {
               <a className={base.primaryCta} href="/contact">contact us</a>
             </div>
             <img
-              src="/images/section-contact3.apng"
+              src="/images/section-contact3.webp"
               alt=""
               aria-hidden="true"
               className={styles.ctaImage}

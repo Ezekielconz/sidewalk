@@ -71,7 +71,7 @@ export default function ContactPage() {
           </div>
           <div className={styles.introRight}>
             <img
-              src="/images/contact-hero.apng"
+              src="/images/contact-hero.webp"
               alt=""
               aria-hidden="true"
               className={styles.introImage}

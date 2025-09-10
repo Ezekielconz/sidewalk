@@ -14,8 +14,8 @@ export default function ContactSection() {
         </div>
 
         <img
-          src="/images/section-contact2.apng"
-          alt=""
+          src="/images/section-contact2.webp"
+          alt="Hand-drawn illustration of Earth with an envelope, symbolizing global contact"
           aria-hidden="true"
           className={styles.splitImage}
         />

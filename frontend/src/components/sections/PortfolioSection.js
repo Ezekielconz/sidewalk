@@ -6,17 +6,17 @@ import styles from "../../app/page.module.css";
 
 const CLIENT_LOGOS = [
   {
-    src: "/portfolio/underthehood.apng",
+    src: "/portfolio/underthehood.webp",
     alt: "Under The Hood BBQ logo",
     href: "https://underthehoodbbq.co.nz/", 
   },
   {
-    src: "/portfolio/richmondafc.apng",
+    src: "/portfolio/richmondafc.webp",
     alt: "Richmond AFC logo",
     href: "https://www.richmondathletic.co.nz/", 
   },
   {
-    src: "/portfolio/kiwiexplorer.apng",
+    src: "/portfolio/kiwiexplorer.webp",
     alt: "Kiwi Explorers logo",
     href: "https://www.kiwiexplorers.co.nz/", 
   },

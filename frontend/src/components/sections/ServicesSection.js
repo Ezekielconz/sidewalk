@@ -19,7 +19,7 @@ export default function ServicesSection() {
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
-                src="/images/section-services-1.apng"
+                src="/images/section-services-1.webp"
                 alt="brand identity"
                 fill
                 className={styles.listIcon}
@@ -35,7 +35,7 @@ export default function ServicesSection() {
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
-                src="/images/section-services-2.apng"
+                src="/images/section-services-2.webp"
                 alt="web design & development"
                 fill
                 className={styles.listIcon}
@@ -50,7 +50,7 @@ export default function ServicesSection() {
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
-                src="/images/section-services-3.apng"
+                src="/images/section-services-3.webp"
                 alt="care & growth"
                 fill
                 className={styles.listIcon}

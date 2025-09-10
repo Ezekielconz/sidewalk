@@ -16,7 +16,7 @@ export default function TechSection() {
         </div>
 
         <img
-          src="/images/section-tech.apng"
+          src="/images/section-tech.webp"
           alt=""
           aria-hidden="true"
           className={styles.splitImage}

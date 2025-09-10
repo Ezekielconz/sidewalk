@@ -19,7 +19,7 @@ export default function WhySection() {
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
-                src="/images/section-why-craft.apng"
+                src="/images/section-why-craft.webp"
                 alt="craft, not templates"
                 fill
                 className={styles.listIcon}
@@ -34,7 +34,7 @@ export default function WhySection() {
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
-                src="/images/section-why-performance.apng"
+                src="/images/section-why-performance.webp"
                 alt="performance first"
                 fill
                 className={styles.listIcon}
@@ -49,7 +49,7 @@ export default function WhySection() {
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
-                src="/images/section-why-local.apng"
+                src="/images/section-why-local.webp"
                 alt="local & dependable"
                 fill
                 className={styles.listIcon}
@@ -64,7 +64,7 @@ export default function WhySection() {
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
-                src="/images/section-why-idea.apng"
+                src="/images/section-why-idea.webp"
                 alt="from idea to launch"
                 fill
                 className={styles.listIcon}
