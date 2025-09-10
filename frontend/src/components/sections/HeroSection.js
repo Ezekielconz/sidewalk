@@ -19,7 +19,7 @@ export default function HeroSection() {
         </div>
 
         <img
-          src="/images/section-hero.apng"
+          src="/images/section-hero.webp"
           alt=""
           aria-hidden="true"
           className={styles.splitImage}
