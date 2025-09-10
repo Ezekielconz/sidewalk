@@ -23,11 +23,12 @@ export default function HeroSection() {
           src="/images/section-hero.webp"
           alt="Hand-drawn sidewalk path winding forward with small grass tufts"
           className={styles.splitImage}
-          width={700}          
-          height={520}           
-          priority               
-          quality={68}    
-          sizes="(max-width: 768px) 100vw, 50vw" 
+          width={700}
+          height={520}
+          priority
+          fetchPriority="high"
+          quality={68}
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </Section>
