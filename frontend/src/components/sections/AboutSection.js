@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "./Section";
 import styles from "../../app/page.module.css";
 
@@ -19,11 +20,15 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <img
+        <Image
           src="/images/section-about.webp"
-          alt="Hand-drawn animated coffee mug illustration"
-          aria-hidden="true"
+          alt="Hand-drawn animated coffee mug illustration, representing Sidewalk’s creative style"
           className={styles.splitImage}
+          width={348}          
+          height={444}        
+          quality={68}     
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading="lazy"       
         />
       </div>
     </Section>

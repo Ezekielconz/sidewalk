@@ -20,10 +20,11 @@ export default function WhySection() {
             <div className={styles.listIconWrap}>
               <Image
                 src="/images/section-why-craft.webp"
-                alt="craft, not templates"
+                alt="Hand-drawn pencil illustration representing craft, not templates"
                 fill
                 className={styles.listIcon}
                 sizes="80px"
+                quality={70}
               />
             </div>
             <p>
@@ -35,10 +36,11 @@ export default function WhySection() {
             <div className={styles.listIconWrap}>
               <Image
                 src="/images/section-why-performance.webp"
-                alt="performance first"
+                alt="Hand-drawn speedometer illustration symbolizing performance first"
                 fill
                 className={styles.listIcon}
                 sizes="80px"
+                quality={70}
               />
             </div>
             <p>
@@ -50,10 +52,11 @@ export default function WhySection() {
             <div className={styles.listIconWrap}>
               <Image
                 src="/images/section-why-local.webp"
-                alt="local & dependable"
+                alt="Hand-drawn chat bubble over a location pin representing local and dependable"
                 fill
                 className={styles.listIcon}
                 sizes="80px"
+                quality={70}
               />
             </div>
             <p>
@@ -65,10 +68,11 @@ export default function WhySection() {
             <div className={styles.listIconWrap}>
               <Image
                 src="/images/section-why-idea.webp"
-                alt="from idea to launch"
+                alt="Hand-drawn rocket illustration symbolizing from idea to launch"
                 fill
                 className={styles.listIcon}
                 sizes="80px"
+                quality={70}
               />
             </div>
             <p>

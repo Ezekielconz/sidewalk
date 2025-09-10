@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "./Section";
 import styles from "../../app/page.module.css";
 
@@ -15,11 +16,15 @@ export default function TechSection() {
           </p>
         </div>
 
-        <img
+        <Image
           src="/images/section-tech.webp"
-          alt=""
-          aria-hidden="true"
+          alt="Hand-drawn laptop with React, Shopify, and Angular icons"
           className={styles.splitImage}
+          width={348}          
+          height={318}         
+          quality={68}         
+          loading="lazy"      
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </Section>
