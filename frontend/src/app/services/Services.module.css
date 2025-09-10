@@ -61,8 +61,8 @@
   width: 56px; height: auto; object-fit: contain; flex: 0 0 auto;
 }
 .whatBody { display: block; }
-.whatBody strong { display: block; color: var(--brand); margin-bottom: 0.35rem; font-weight: 700; }
-.whatBody p { line-height: 1.7; margin: 0; }
+.whatBody strong { display: block; color: var(--brand); margin-bottom: 0.35rem; font-weight: 800; font-family: var(--font-montserrat), sans-serif;}
+.whatBody p { line-height: 1.7; margin: 0; font-family: var(--font-freehand), cursive;}
 
 /* =========================================================
    WORKFLOW (identical sizing/spacing)
@@ -76,8 +76,8 @@
   width: 56px; height: auto; object-fit: contain; flex: 0 0 auto;
 }
 .flowBody { display: block; }
-.flowBody strong { display: block; color: var(--brand); margin-bottom: 0.35rem; font-weight: 700; }
-.flowBody p { line-height: 1.7; margin: 0; }
+.flowBody strong { display: block; color: var(--brand); margin-bottom: 0.35rem; font-weight: 800; font-family: var(--font-montserrat), sans-serif;}
+.flowBody p { line-height: 1.7; margin: 0; font-family: var(--font-freehand), cursive;}
 
 /* =========================================================
    PACKAGES (icons + copy)
@@ -93,9 +93,9 @@
 .packageBody { text-align: left; }
 .packageBody strong {
   display: block; color: var(--brand); margin-bottom: 0.25rem;
-  font-family: var(--font-montserrat), sans-serif; font-weight: 700;
+  font-family: var(--font-montserrat), sans-serif; font-weight: 800;
 }
-.packageBody p { line-height: 1.65; }
+.packageBody p { line-height: 1.65; font-family: var(--font-freehand), cursive;}
 
 /* =========================================================
    CTA (desktop: inline image; mobile: image behind copy)

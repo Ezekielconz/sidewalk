@@ -300,20 +300,21 @@
 .whyItem p,
 .serviceItem p {
   margin: 0;
-  font-family: var(--font-montserrat), sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--ink);
   text-transform: none;
+  font-family: var(--font-freehand), cursive;
 }
 
 .listItem p strong,
 .whyItem p strong,
 .serviceItem p strong {
   color: var(--brand);
-  font-weight: 600;
+  font-weight: 800;
   display: block;
   margin-bottom: 0.25rem;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 /* Mobile */
