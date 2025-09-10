@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
-import base from "../page.module.css";
-import styles from "./About.module.css";
+import base from "../page.module.css";           // shared layout system (snap, lists, etc.)
+import styles from "./About.module.css";         // about-specific tweaks
 import Section from "../../components/sections/Section";
 
 const SECTIONS = [
-  { id: "hero", label: "Home" },
+  { id: "hero",   label: "Home" },
   { id: "values", label: "Our values" },
-  { id: "team", label: "Team" },
+  { id: "team",   label: "Team" },
 ];
 
 export default function AboutPage() {
@@ -23,9 +23,7 @@ export default function AboutPage() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible && visible.target && visible.target.id) {
-          setActive(visible.target.id);
-        }
+        if (visible?.target?.id) setActive(visible.target.id);
       },
       { root: null, threshold: 0.6 }
     );
@@ -40,6 +38,7 @@ export default function AboutPage() {
 
   return (
     <>
+      {/* Dot nav */}
       <nav className={base.dotWrap} aria-label="Section navigation">
         <ul className={base.dots}>
           {SECTIONS.map((s) => (
@@ -57,10 +56,11 @@ export default function AboutPage() {
       </nav>
 
       <div ref={containerRef} className={base.snapContainer}>
+        {/* ============================= HERO ============================= */}
         <Section id="hero" title="sidewalk" className={`${base.hero} ${styles.hero}`}>
           <div className={base.splitInner}>
             <div className={base.splitText}>
-              <h1 className={base.splitTitle}>we are sidewalk</h1>
+              <h1 className={`${base.splitTitle} ${styles.titleTight}`}>we are sidewalk</h1>
               <p className={base.splitNote}>
                 we’re a nelson-based duo passionate about crafting websites and building brands that connect.
                 at sidewalk, we bring design and development together to help companies stand out online.
@@ -80,11 +80,12 @@ export default function AboutPage() {
               priority
               fetchPriority="high"
               quality={68}
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 900px) 92vw, (max-width: 1200px) 50vw, 700px"
             />
           </div>
         </Section>
 
+        {/* ============================= VALUES ============================= */}
         <Section id="values" title="values" className={styles.values}>
           <div className={base.listSectionGrid}>
             <div className={base.listSectionText}>
@@ -96,104 +97,114 @@ export default function AboutPage() {
 
             <div className={base.listItems}>
               <div className={base.listItem}>
-                <div className={styles.iconCell}>
+                <div className={base.listIconWrap}>
                   <Image
                     src="/images/about-values-1.webp"
                     alt="Kiwi bird illustration for clarity over clutter"
                     width={80}
                     height={80}
-                    className={styles.iconImg}
+                    className={base.listIcon}
                     sizes="(max-width: 900px) 68px, 80px"
                     quality={65}
                     loading="lazy"
                   />
                 </div>
                 <p>
-                  <strong>clarity over clutter</strong> we design for decisions, honest hierarchy, clear messaging, frictionless paths.
+                  <strong>clarity over clutter</strong>
+                  we design for decisions, honest hierarchy, clear messaging, frictionless paths.
                 </p>
               </div>
 
               <div className={base.listItem}>
-                <div className={styles.iconCell}>
+                <div className={base.listIconWrap}>
                   <Image
                     src="/images/about-values-2.webp"
                     alt="Star on textured background for distinctive by default"
                     width={80}
                     height={80}
-                    className={styles.iconImg}
+                    className={base.listIcon}
                     sizes="(max-width: 900px) 68px, 80px"
                     quality={65}
                     loading="lazy"
                   />
                 </div>
                 <p>
-                  <strong>distinctive by default</strong> no templates; expressive systems that look and feel like you.
+                  <strong>distinctive by default</strong>
+                  no templates; expressive systems that look and feel like you.
                 </p>
               </div>
 
               <div className={base.listItem}>
-                <div className={styles.iconCell}>
+                <div className={base.listIconWrap}>
                   <Image
                     src="/images/about-values-3.webp"
                     alt="Yellow balloon among grey balloons for performance as brand"
                     width={80}
                     height={80}
-                    className={styles.iconImg}
+                    className={base.listIcon}
                     sizes="(max-width: 900px) 68px, 80px"
                     quality={65}
                     loading="lazy"
                   />
                 </div>
                 <p>
-                  <strong>performance as brand</strong> speed and accessibility shape perception. we bake them in from day one.
+                  <strong>performance as brand</strong>
+                  speed and accessibility shape perception. we bake them in from day one.
                 </p>
               </div>
             </div>
           </div>
         </Section>
 
+        {/* ============================= TEAM (matches services layout) ============================= */}
         <Section id="team" title="team" className={styles.team}>
-          <div className={base.whyGridOuter}>
-            <div className={base.whyText}>
-              <h2 className={styles.titleTight}>the people</h2>
-              <p className={base.whyIntro}>
+          <div className={base.listSectionGrid}>
+            <div className={base.listSectionText}>
+              <h2 className={base.listSectionTitle}>the people</h2>
+              <p className={base.listSectionIntro}>
                 two people, many skills, working closely to bring ideas to life.
               </p>
             </div>
 
-            <div className={base.whyItems}>
-              <div className={styles.person}>
+            <div className={base.listItems}>
+              {/* Person 1 */}
+              <div className={`${base.listItem} ${styles.personRow}`}>
                 <div className={styles.avatarWrap}>
                   <Image
                     className={styles.avatar}
-                    src="/images/team_ezekiel.webp"
-                    alt="Ezekiel Brown"
-                    width={160}
-                    height={160}
-                    sizes="160px"
-                    quality={70}
+                    src="/images/team_ezekiel.jpg"
+                    alt="Portrait of Ezekiel Brown"
+                    width={96}
+                    height={96}
+                    sizes="96px"
+                    quality={72}
                     loading="lazy"
                   />
                 </div>
-                <strong>Ezekiel Brown</strong>
-                <div className={styles.role}>co-founder — tech lead &amp; web design</div>
+                <div className={styles.personText}>
+                  <strong className={styles.name}>Ezekiel Brown</strong>
+                  <div className={styles.role}>co-founder — tech lead &amp; web design</div>
+                </div>
               </div>
 
-              <div className={styles.person}>
+              {/* Person 2 */}
+              <div className={`${base.listItem} ${styles.personRow}`}>
                 <div className={styles.avatarWrap}>
                   <Image
                     className={styles.avatar}
-                    src="/images/team_keegan.webp"
-                    alt="Keegan Jeffries"
-                    width={160}
-                    height={160}
-                    sizes="160px"
-                    quality={70}
+                    src="/images/team_keegan.jpg"
+                    alt="Portrait of Keegan Jeffries"
+                    width={96}
+                    height={96}
+                    sizes="96px"
+                    quality={72}
                     loading="lazy"
                   />
                 </div>
-                <strong>Keegan Jeffries</strong>
-                <div className={styles.role}>co-founder — sales &amp; marketing</div>
+                <div className={styles.personText}>
+                  <strong className={styles.name}>Keegan Jeffries</strong>
+                  <div className={styles.role}>co-founder — sales &amp; marketing</div>
+                </div>
               </div>
             </div>
           </div>
