@@ -20,46 +20,45 @@ export default function ServicesSection() {
             <div className={styles.listIconWrap}>
               <Image
                 src="/images/section-services-1.webp"
-                alt="brand identity"
-                fill
+                alt="Brand identity illustration"
+                width={80} height={80}
                 className={styles.listIcon}
                 sizes="(max-width: 900px) 68px, 80px"
-                priority
+                quality={65}
+                loading="lazy"
               />
             </div>
-            <p>
-              <strong>brand identity</strong> naming, logo, colour, typography.
-            </p>
+            <p><strong>brand identity</strong> naming, logo, colour, typography.</p>
           </div>
 
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
                 src="/images/section-services-2.webp"
-                alt="web design & development"
-                fill
+                alt="Web design and development illustration"
+                width={80} height={80}
                 className={styles.listIcon}
                 sizes="(max-width: 900px) 68px, 80px"
+                quality={65}
+                loading="lazy"
               />
             </div>
-            <p>
-              <strong>web design &amp; development</strong> static (portfolio), CMS, e-commerce (Shopify) sites.
-            </p>
+            <p><strong>web design &amp; development</strong> static (portfolio), CMS, e-commerce (Shopify) sites.</p>
           </div>
 
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
               <Image
                 src="/images/section-services-3.webp"
-                alt="care & growth"
-                fill
+                alt="Care and growth illustration"
+                width={80} height={80}
                 className={styles.listIcon}
                 sizes="(max-width: 900px) 68px, 80px"
+                quality={65}
+                loading="lazy"
               />
             </div>
-            <p>
-              <strong>care &amp; growth</strong> hosting, monitoring, SEO, content support, and continuous improvements.
-            </p>
+            <p><strong>care &amp; growth</strong> hosting, monitoring, SEO, content support, and continuous improvements.</p>
           </div>
         </div>
       </div>

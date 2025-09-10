@@ -6,9 +6,6 @@ import base from "../page.module.css";
 import styles from "./About.module.css";
 import Section from "../../components/sections/Section";
 
-/* =========================================================
-   SECTION MAP
-   ========================================================= */
 const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "values", label: "Our values" },
@@ -16,9 +13,6 @@ const SECTIONS = [
 ];
 
 export default function AboutPage() {
-  /* =========================================================
-     STATE: ACTIVE DOT
-     ========================================================= */
   const containerRef = useRef(null);
   const [active, setActive] = useState(SECTIONS[0].id);
 
@@ -29,7 +23,9 @@ export default function AboutPage() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActive(visible.target.id);
+        if (visible && visible.target && visible.target.id) {
+          setActive(visible.target.id);
+        }
       },
       { root: null, threshold: 0.6 }
     );
@@ -42,12 +38,8 @@ export default function AboutPage() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  /* =========================================================
-     RENDER
-     ========================================================= */
   return (
     <>
-      {/* Dot nav */}
       <nav className={base.dotWrap} aria-label="Section navigation">
         <ul className={base.dots}>
           {SECTIONS.map((s) => (
@@ -64,11 +56,7 @@ export default function AboutPage() {
         </ul>
       </nav>
 
-      {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
-        {/* =========================================================
-            HERO (split layout)
-           ========================================================= */}
         <Section id="hero" title="sidewalk" className={`${base.hero} ${styles.hero}`}>
           <div className={base.splitInner}>
             <div className={base.splitText}>
@@ -83,17 +71,20 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <img
+            <Image
               src="/images/about-hero.webp"
-              alt="hand-drawn flicker illustration"
+              alt="Hand-drawn kiwi in front of mountains holding colorful blocks"
               className={base.splitImage}
+              width={700}
+              height={520}
+              priority
+              fetchPriority="high"
+              quality={68}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </Section>
 
-        {/* =========================================================
-            VALUES (reuse Home 'why us' layout/typography)
-           ========================================================= */}
         <Section id="values" title="values" className={styles.values}>
           <div className={base.listSectionGrid}>
             <div className={base.listSectionText}>
@@ -108,11 +99,13 @@ export default function AboutPage() {
                 <div className={styles.iconCell}>
                   <Image
                     src="/images/about-values-1.webp"
-                    alt="clarity over clutter"
-                    fill
+                    alt="Kiwi bird illustration for clarity over clutter"
+                    width={80}
+                    height={80}
                     className={styles.iconImg}
-                    sizes="80px"
-                    priority={false}
+                    sizes="(max-width: 900px) 68px, 80px"
+                    quality={65}
+                    loading="lazy"
                   />
                 </div>
                 <p>
@@ -124,10 +117,13 @@ export default function AboutPage() {
                 <div className={styles.iconCell}>
                   <Image
                     src="/images/about-values-2.webp"
-                    alt="distinctive by default"
-                    fill
+                    alt="Star on textured background for distinctive by default"
+                    width={80}
+                    height={80}
                     className={styles.iconImg}
-                    sizes="80px"
+                    sizes="(max-width: 900px) 68px, 80px"
+                    quality={65}
+                    loading="lazy"
                   />
                 </div>
                 <p>
@@ -139,10 +135,13 @@ export default function AboutPage() {
                 <div className={styles.iconCell}>
                   <Image
                     src="/images/about-values-3.webp"
-                    alt="performance as brand"
-                    fill
+                    alt="Yellow balloon among grey balloons for performance as brand"
+                    width={80}
+                    height={80}
                     className={styles.iconImg}
-                    sizes="80px"
+                    sizes="(max-width: 900px) 68px, 80px"
+                    quality={65}
+                    loading="lazy"
                   />
                 </div>
                 <p>
@@ -153,9 +152,6 @@ export default function AboutPage() {
           </div>
         </Section>
 
-        {/* =========================================================
-            TEAM
-           ========================================================= */}
         <Section id="team" title="team" className={styles.team}>
           <div className={base.whyGridOuter}>
             <div className={base.whyText}>
@@ -168,18 +164,36 @@ export default function AboutPage() {
             <div className={base.whyItems}>
               <div className={styles.person}>
                 <div className={styles.avatarWrap}>
-                  <img className={styles.avatar} src="/images/team_ezekiel.webp" alt="Ezekiel Brown" />
+                  <Image
+                    className={styles.avatar}
+                    src="/images/team_ezekiel.webp"
+                    alt="Ezekiel Brown"
+                    width={160}
+                    height={160}
+                    sizes="160px"
+                    quality={70}
+                    loading="lazy"
+                  />
                 </div>
                 <strong>Ezekiel Brown</strong>
-                <div className={styles.role}>co-founder — tech lead & web design</div>
+                <div className={styles.role}>co-founder — tech lead &amp; web design</div>
               </div>
 
               <div className={styles.person}>
                 <div className={styles.avatarWrap}>
-                  <img className={styles.avatar} src="/images/team_keegan.webp" alt="Keegan Jeffries" />
+                  <Image
+                    className={styles.avatar}
+                    src="/images/team_keegan.webp"
+                    alt="Keegan Jeffries"
+                    width={160}
+                    height={160}
+                    sizes="160px"
+                    quality={70}
+                    loading="lazy"
+                  />
                 </div>
                 <strong>Keegan Jeffries</strong>
-                <div className={styles.role}>co-founder — sales & marketing</div>
+                <div className={styles.role}>co-founder — sales &amp; marketing</div>
               </div>
             </div>
           </div>

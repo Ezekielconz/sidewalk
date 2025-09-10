@@ -8,17 +8,17 @@ const CLIENT_LOGOS = [
   {
     src: "/portfolio/underthehood.webp",
     alt: "Under The Hood BBQ logo",
-    href: "https://underthehoodbbq.co.nz/", 
+    href: "https://underthehoodbbq.co.nz/",
   },
   {
     src: "/portfolio/richmondafc.webp",
     alt: "Richmond AFC logo",
-    href: "https://www.richmondathletic.co.nz/", 
+    href: "https://www.richmondathletic.co.nz/",
   },
   {
     src: "/portfolio/kiwiexplorer.webp",
     alt: "Kiwi Explorers logo",
-    href: "https://www.kiwiexplorers.co.nz/", 
+    href: "https://www.kiwiexplorers.co.nz/",
   },
 ];
 
@@ -34,9 +34,9 @@ export default function PortfolioSection() {
           </p>
         </div>
 
-        <div className={styles.portfolioItems} role="list">
-          {CLIENT_LOGOS.map((logo, i) => (
-            <div className={styles.portfolioItem} role="listitem" key={logo.src}>
+        <ul className={styles.portfolioItems}>
+          {CLIENT_LOGOS.map((logo) => (
+            <li className={styles.portfolioItem} key={logo.src}>
               <a
                 className={styles.logoLink}
                 href={logo.href}
@@ -52,13 +52,13 @@ export default function PortfolioSection() {
                   height={160}
                   className={styles.portfolioImage}
                   sizes="(max-width: 520px) 33vw, (max-width: 900px) 33vw, 160px"
-                  priority={i === 0}
-                  unoptimized
+                  loading="lazy"
+                  quality={66}
                 />
               </a>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </Section>
   );
