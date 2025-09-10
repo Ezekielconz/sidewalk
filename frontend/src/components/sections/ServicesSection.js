@@ -25,7 +25,7 @@ export default function ServicesSection() {
                 className={styles.listIcon}
                 sizes="(max-width: 900px) 68px, 80px"
                 quality={65}
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <p><strong>brand identity</strong> naming, logo, colour, typography.</p>
@@ -40,7 +40,7 @@ export default function ServicesSection() {
                 className={styles.listIcon}
                 sizes="(max-width: 900px) 68px, 80px"
                 quality={65}
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <p><strong>web design &amp; development</strong> static (portfolio), CMS, e-commerce (Shopify) sites.</p>
@@ -55,7 +55,7 @@ export default function ServicesSection() {
                 className={styles.listIcon}
                 sizes="(max-width: 900px) 68px, 80px"
                 quality={65}
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <p><strong>care &amp; growth</strong> hosting, monitoring, SEO, content support, and continuous improvements.</p>

@@ -106,7 +106,7 @@ export default function AboutPage() {
                     className={base.listIcon}
                     sizes="(max-width: 900px) 68px, 80px"
                     quality={65}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </div>
                 <p>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                     className={base.listIcon}
                     sizes="(max-width: 900px) 68px, 80px"
                     quality={65}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </div>
                 <p>
@@ -144,7 +144,7 @@ export default function AboutPage() {
                     className={base.listIcon}
                     sizes="(max-width: 900px) 68px, 80px"
                     quality={65}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </div>
                 <p>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                     height={96}
                     sizes="96px"
                     quality={72}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </div>
                 <div className={styles.personText}>
@@ -198,7 +198,7 @@ export default function AboutPage() {
                     height={96}
                     sizes="96px"
                     quality={72}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </div>
                 <div className={styles.personText}>

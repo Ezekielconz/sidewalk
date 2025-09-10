@@ -28,7 +28,7 @@ export default function AboutSection() {
           height={444}        
           quality={68}     
           sizes="(max-width: 768px) 100vw, 50vw"
-          loading="lazy"       
+          loading="eager"       
         />
       </div>
     </Section>

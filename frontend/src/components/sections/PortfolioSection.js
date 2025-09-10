@@ -52,7 +52,7 @@ export default function PortfolioSection() {
                   height={160}
                   className={styles.portfolioImage}
                   sizes="(max-width: 520px) 33vw, (max-width: 900px) 33vw, 160px"
-                  loading="lazy"
+                  loading="eager"
                   quality={66}
                 />
               </a>

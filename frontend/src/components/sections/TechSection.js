@@ -23,7 +23,7 @@ export default function TechSection() {
           width={348}          
           height={318}         
           quality={68}         
-          loading="lazy"      
+          loading="eager"      
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
