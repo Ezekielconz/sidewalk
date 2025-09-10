@@ -174,7 +174,7 @@
 
 .splitNote {
   font-family: var(--font-freehand), cursive;
-  font-size: 1.25rem;    /* shared with About */
+  font-size: 1rem;    /* shared with About */
   line-height: 1.7;
   color: var(--ink);
   margin: 0 0 1.5rem 0;
@@ -210,7 +210,6 @@
 
   /* unified mobile sizes (no clamp) */
   .splitTitle { font-size: 2.4rem; }
-  .splitNote  { font-size: 1.2rem; }
 
   /* Ensure Hero (h1) and About (h2) titles are identical on mobile */
   .section h1.splitTitle,
@@ -257,7 +256,7 @@
 .whyIntro,
 .servicesIntro {
   font-family: var(--font-freehand), cursive;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--ink);
 }
@@ -359,7 +358,7 @@
 }
 .portfolioText { display: flex; flex-direction: column; justify-content: center; }
 .portfolioTitle { font-family: var(--font-montserrat), sans-serif; font-weight: 800; font-size: 2.5rem; margin-bottom: 1rem; color: var(--ink); text-transform: lowercase; }
-.portfolioIntro { font-family: var(--font-freehand), cursive; font-size: 1.25rem; line-height: 1.7; color: var(--ink); }
+.portfolioIntro { font-family: var(--font-freehand), cursive; font-size: 1rem; line-height: 1.7; color: var(--ink); }
 
 .portfolioItems { display: grid; grid-template-columns: 1fr; gap: 1rem; justify-items: center; }
 .portfolioItem { display: flex; align-items: center; justify-content: center; }
