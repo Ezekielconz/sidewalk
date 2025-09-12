@@ -31,9 +31,7 @@ export default function PortfolioPage() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible && visible.target && visible.target.id) {
-          setActive(visible.target.id);
-        }
+        if (visible?.target?.id) setActive(visible.target.id);
       },
       { root: null, threshold: 0.6 }
     );
@@ -68,7 +66,7 @@ export default function PortfolioPage() {
 
       {/* Snap container */}
       <div ref={containerRef} className={base.snapContainer}>
-        {/* HERO — now uses split layout to match Home/About exactly */}
+        {/* HERO — split layout */}
         <Section id="hero" title="portfolio" className={`${base.portfolio} ${styles.hero}`}>
           <div className={base.splitInner}>
             <div className={base.splitText}>
@@ -82,15 +80,17 @@ export default function PortfolioPage() {
               </div>
             </div>
 
+            {/* Hero illustration (animated/static): keep non-lazy */}
             <img
               src="/images/portfolio-hero.webp"
               alt="hero illustration"
               className={base.splitImage}
+              decoding="async"
             />
           </div>
         </Section>
 
-        {/* RECENT — WhySection layout, images only on the right */}
+        {/* RECENT — images on the right */}
         <Section id="selected" title="recent projects" className={styles.selected}>
           <div className={base.whyGridOuter}>
             {/* Left: title + intro */}
@@ -109,6 +109,8 @@ export default function PortfolioPage() {
                     src={p.image}
                     alt={`${p.name} — ${p.type}`}
                     className={base.whyIcon}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -116,7 +118,7 @@ export default function PortfolioPage() {
           </div>
         </Section>
 
-        {/* CASE STUDIES — same layout/look as recent, also from JSON */}
+        {/* CASE STUDIES — same layout/look as recent */}
         <Section id="cases" title="case studies" className={styles.cases}>
           <div className={base.whyGridOuter}>
             {/* Left: title + intro */}
@@ -135,6 +137,8 @@ export default function PortfolioPage() {
                     src={p.image}
                     alt={`${p.name} — ${p.type}`}
                     className={base.whyIcon}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -142,7 +146,7 @@ export default function PortfolioPage() {
           </div>
         </Section>
 
-        {/* CTA — Contact-style (2 col on desktop; image becomes bg on mobile) */}
+        {/* CTA — Contact-style */}
         <Section id="cta" title="let's talk" className={base.contact}>
           <div className={`${base.contactInner} ${styles.ctaInner}`}>
             {/* Left content */}
@@ -158,6 +162,8 @@ export default function PortfolioPage() {
               alt=""
               aria-hidden="true"
               className={styles.ctaImage}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </Section>

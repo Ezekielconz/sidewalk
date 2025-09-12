@@ -70,11 +70,13 @@ export default function ContactPage() {
             </p>
           </div>
           <div className={styles.introRight}>
+            {/* Decorative hero image (first viewport: no lazy) */}
             <img
               src="/images/contact-hero.webp"
               alt=""
               aria-hidden="true"
               className={styles.introImage}
+              decoding="async"
             />
           </div>
         </div>
@@ -157,22 +159,38 @@ export default function ContactPage() {
             </p>
           </form>
 
-          {/* contact details – no card, compact icon list */}
+          {/* contact details – compact icon list */}
           <aside className={styles.contactSide}>
             <div className={styles.contactBlock}>
               <div className={styles.contactHeading}>contact</div>
               <ul className={styles.contactList}>
                 <li className={styles.contactItem}>
-                  <svg className={styles.contactIcon} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z"/>
+                  <svg
+                    className={styles.contactIcon}
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z"
+                    />
                   </svg>
                   <div className={styles.contactText}>
                     <a href="mailto:admin@sidewalks.co.nz">admin@sidewalks.co.nz</a>
                   </div>
                 </li>
                 <li className={styles.contactItem}>
-                  <svg className={styles.contactIcon} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                  <svg
+                    className={styles.contactIcon}
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+                    />
                   </svg>
                   <div className={styles.contactText}>nelson, new zealand</div>
                 </li>

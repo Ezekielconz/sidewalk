@@ -73,10 +73,12 @@ export default function ServicesPage() {
               </div>
             </div>
 
+            {/* Animated hero: keep <img> (no Next optimization needed) */}
             <img
               src="/images/services-hero.webp"
               alt="Hand-drawn illustration of a computer screen with bright colors, symbolizing creative digital work"
               className={base.splitImage}
+              decoding="async"
             />
           </div>
         </Section>
@@ -99,6 +101,8 @@ export default function ServicesPage() {
                     src="/images/services-what-1.webp"
                     alt="Hand-drawn illustration of a website wireframe on a canvas"
                     className={styles.whatIcon}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className={styles.whatBody}>
                     <strong>web design</strong>
@@ -113,6 +117,8 @@ export default function ServicesPage() {
                     src="/images/services-what-2.webp"
                     alt="Hand-drawn illustration of a plant sprouting from soil, symbolizing growth in development"
                     className={styles.whatIcon}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className={styles.whatBody}>
                     <strong>development</strong>
@@ -127,6 +133,8 @@ export default function ServicesPage() {
                     src="/images/services-what-3.webp"
                     alt="Hand-drawn illustration of a larger plant, symbolizing brand and content growth"
                     className={styles.whatIcon}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className={styles.whatBody}>
                     <strong>brand & content</strong>
@@ -151,7 +159,13 @@ export default function ServicesPage() {
             <div className={styles.flowList}>
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-1.webp" alt="Hand-drawn magnifying glass illustration, symbolizing discovery" className={styles.flowIcon} />
+                  <img
+                    src="/images/services-workflow-1.webp"
+                    alt="Hand-drawn magnifying glass illustration, symbolizing discovery"
+                    className={styles.flowIcon}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className={styles.flowBody}>
                     <strong>01 — discover</strong>
                     <p>we listen first. understanding your goals, audience, and challenges. this shared understanding sets the direction.</p>
@@ -161,7 +175,13 @@ export default function ServicesPage() {
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-2.webp" alt="Hand-drawn artist painting on a canvas, symbolizing design process" className={styles.flowIcon} />
+                  <img
+                    src="/images/services-workflow-2.webp"
+                    alt="Hand-drawn artist painting on a canvas, symbolizing design process"
+                    className={styles.flowIcon}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className={styles.flowBody}>
                     <strong>02 — design</strong>
                     <p>we explore ideas, create layouts, and shape a brand presence that feels distinctive and easy to use.</p>
@@ -171,7 +191,13 @@ export default function ServicesPage() {
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-3.webp" alt="Hand-drawn builder with a hammer and toolbox, symbolizing website build" className={styles.flowIcon} />
+                  <img
+                    src="/images/services-workflow-3.webp"
+                    alt="Hand-drawn builder with a hammer and toolbox, symbolizing website build"
+                    className={styles.flowIcon}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className={styles.flowBody}>
                     <strong>03 — build</strong>
                     <p>we turn designs into fast, responsive, and accessible websites, engineered for long-term performance.</p>
@@ -181,7 +207,13 @@ export default function ServicesPage() {
 
               <div className={styles.flowRow}>
                 <div className={styles.flowText}>
-                  <img src="/images/services-workflow-4.webp" alt="Hand-drawn astronaut floating in outer space, symbolizing a successful website launch" className={styles.flowIcon} />
+                  <img
+                    src="/images/services-workflow-4.webp"
+                    alt="Hand-drawn astronaut floating in outer space, symbolizing a successful website launch"
+                    className={styles.flowIcon}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className={styles.flowBody}>
                     <strong>04 — launch</strong>
                     <p>we prepare every detail for a smooth launch, then support you with updates, care, and improvements.</p>
@@ -204,7 +236,13 @@ export default function ServicesPage() {
 
             <div className={styles.packageList}>
               <div className={styles.packageItem}>
-                <img className={styles.packageIcon} src="/images/services-packages-1.webp" alt="Hand-drawn sprouting seed illustration, symbolizing the Seed package" />
+                <img
+                  className={styles.packageIcon}
+                  src="/images/services-packages-1.webp"
+                  alt="Hand-drawn sprouting seed illustration, symbolizing the Seed package"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className={styles.packageBody}>
                   <strong>seed</strong>
                   <p>a clean, fast website that covers the basics. perfect for portfolios, landing pages, or small businesses starting out.</p>
@@ -212,7 +250,13 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles.packageItem}>
-                <img className={styles.packageIcon} src="/images/services-packages-2.webp" alt="Hand-drawn growing plant illustration, symbolizing the Growth package" />
+                <img
+                  className={styles.packageIcon}
+                  src="/images/services-packages-2.webp"
+                  alt="Hand-drawn growing plant illustration, symbolizing the Growth package"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className={styles.packageBody}>
                   <strong>growth</strong>
                   <p>a custom design and build with room to expand. ideal for businesses ready to stand out with a distinctive brand and marketing site.</p>
@@ -220,7 +264,13 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles.packageItem}>
-                <img className={styles.packageIcon} src="/images/services-packages-3.webp" alt="Hand-drawn tree illustration, symbolizing the Thrive package" />
+                <img
+                  className={styles.packageIcon}
+                  src="/images/services-packages-3.webp"
+                  alt="Hand-drawn tree illustration, symbolizing the Thrive package"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className={styles.packageBody}>
                   <strong>thrive</strong>
                   <p>strategy, design, development, and ongoing care. best for established businesses that want a long-term partner.</p>
@@ -244,6 +294,8 @@ export default function ServicesPage() {
               src="/images/section-contact3.webp"
               alt="Hand-drawn illustration of a contact form with colorful boxes"
               className={styles.ctaImage}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </Section>
