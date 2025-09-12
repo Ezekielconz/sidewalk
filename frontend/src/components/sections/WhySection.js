@@ -9,7 +9,7 @@ export default function WhySection() {
     <Section id="why-us" title="why us" className={styles.why}>
       <div className={styles.listSectionGrid}>
         <div className={styles.listSectionText}>
-          <h2 className={styles.listSectionTitle}>why sidewalk</h2>
+          <h2 className={styles.listSectionTitle}>why sidewalk?</h2>
           <p className={styles.listSectionIntro}>
             we combine creativity, technical skill, and local values to deliver digital experiences that last.
           </p>

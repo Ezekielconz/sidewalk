@@ -17,6 +17,7 @@ export default function AboutPage() {
   const [active, setActive] = useState(SECTIONS[0].id);
 
   useEffect(() => {
+    // Ensure Section renders an element with className={base.section}
     const sectionEls = Array.from(document.querySelectorAll(`.${base.section}`));
     const io = new IntersectionObserver(
       (entries) => {
@@ -71,16 +72,16 @@ export default function AboutPage() {
               </div>
             </div>
 
+            {/* Animated hero: keep unoptimized, keep priority; remove quality/sizes (no-ops) */}
             <Image
               src="/images/about-hero.webp"
               alt="Hand-drawn kiwi in front of mountains holding colorful blocks"
               className={base.splitImage}
               width={700}
               height={520}
+              unoptimized
               priority
               fetchPriority="high"
-              quality={68}
-              sizes="(max-width: 900px) 92vw, (max-width: 1200px) 50vw, 700px"
             />
           </div>
         </Section>
@@ -96,17 +97,16 @@ export default function AboutPage() {
             </div>
 
             <div className={base.listItems}>
+              {/* For tiny animated icons, use <img> and lazy-load */}
               <div className={base.listItem}>
                 <div className={base.listIconWrap}>
-                  <Image
+                  <img
                     src="/images/about-values-1.webp"
                     alt="Kiwi bird illustration for clarity over clutter"
-                    width={80}
-                    height={80}
+                    width="80"
+                    height="80"
+                    loading="lazy"
                     className={base.listIcon}
-                    sizes="(max-width: 900px) 68px, 80px"
-                    quality={65}
-                    loading="eager"
                   />
                 </div>
                 <p>
@@ -117,15 +117,13 @@ export default function AboutPage() {
 
               <div className={base.listItem}>
                 <div className={base.listIconWrap}>
-                  <Image
+                  <img
                     src="/images/about-values-2.webp"
                     alt="Star on textured background for distinctive by default"
-                    width={80}
-                    height={80}
+                    width="80"
+                    height="80"
+                    loading="lazy"
                     className={base.listIcon}
-                    sizes="(max-width: 900px) 68px, 80px"
-                    quality={65}
-                    loading="eager"
                   />
                 </div>
                 <p>
@@ -136,15 +134,13 @@ export default function AboutPage() {
 
               <div className={base.listItem}>
                 <div className={base.listIconWrap}>
-                  <Image
+                  <img
                     src="/images/about-values-3.webp"
                     alt="Yellow balloon among grey balloons for performance as brand"
-                    width={80}
-                    height={80}
+                    width="80"
+                    height="80"
+                    loading="lazy"
                     className={base.listIcon}
-                    sizes="(max-width: 900px) 68px, 80px"
-                    quality={65}
-                    loading="eager"
                   />
                 </div>
                 <p>
@@ -167,7 +163,7 @@ export default function AboutPage() {
             </div>
 
             <div className={base.listItems}>
-              {/* Person 1 */}
+              {/* Person 1 (static JPG: let Next optimize; lazy below-the-fold) */}
               <div className={`${base.listItem} ${styles.personRow}`}>
                 <div className={styles.avatarWrap}>
                   <Image
@@ -178,7 +174,7 @@ export default function AboutPage() {
                     height={96}
                     sizes="96px"
                     quality={72}
-                    loading="eager"
+                    loading="lazy"
                   />
                 </div>
                 <div className={styles.personText}>
@@ -198,7 +194,7 @@ export default function AboutPage() {
                     height={96}
                     sizes="96px"
                     quality={72}
-                    loading="eager"
+                    loading="lazy"
                   />
                 </div>
                 <div className={styles.personText}>
