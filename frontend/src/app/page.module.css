@@ -428,19 +428,71 @@
 /* =========================================================
    DOT NAV
    ========================================================= */
-.dotWrap { position: fixed; top: 50%; left: 24px; transform: translateY(-50%); z-index: 950; pointer-events: none; }
+.dotWrap {
+  position: fixed;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  z-index: 950;
+  pointer-events: none;
+}
+
 .dots {
-  pointer-events: auto; margin: 0; padding: 0.6rem 0.4rem; list-style: none;
-  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  pointer-events: auto;
+  margin: 0;
+  padding: 0.6rem 0.4rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
 }
+
 .dotItem { margin: 0; padding: 0; }
+
+/* Use the custom SVG shape for each dot */
 .dot {
-  width: 18px; height: 10px; border-radius: 3px; background-color: var(--ink);
-  border: 1px solid rgba(32,46,55,.35); cursor: pointer; transform: rotate(-10deg);
-  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  width: 22px;
+  height: 18px;
+  background: var(--ink);
+  border: none;                    /* remove old border */
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+
+  /* Mask with your SVG path */
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.76 56.84"><path fill="white" d="M62.33,46.69L4.5,56.78C2.14,57.2,0,55.33,0,52.89L.24,14c.01-1.9,1.36-3.53,3.2-3.85L61.27.06c2.36-.41,4.51,1.45,4.49,3.9l-.24,38.89c-.01,1.9-1.36,3.53-3.2,3.85h0Z"/></svg>') no-repeat center / contain;
+  mask:         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.76 56.84"><path fill="white" d="M62.33,46.69L4.5,56.78C2.14,57.2,0,55.33,0,52.89L.24,14c.01-1.9,1.36-3.53,3.2-3.85L61.27.06c2.36-.41,4.51,1.45,4.49,3.9l-.24,38.89c-.01,1.9-1.36,3.53-3.2,3.85h0Z"/></svg>') no-repeat center / contain;
 }
-.dot:hover { border-color: rgba(32,46,55,.6); transform: scale(1.2) rotate(-10deg); }
-.active { background: var(--brand); border-color: var(--brand); transform: scale(1.35) rotate(-10deg); box-shadow: 0 0 0 4px rgba(222,68,42,.18); }
+
+/* Fallback for browsers without CSS mask support (uses a filled SVG as bg) */
+@supports not (mask: url("")) {
+  .dot {
+    background: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65.76 56.84'><path fill='%23212c34' d='M62.33,46.69L4.5,56.78C2.14,57.2,0,55.33,0,52.89L.24,14c.01-1.9,1.36-3.53,3.2-3.85L61.27.06c2.36-.41,4.51,1.45,4.49,3.9l-.24,38.89c-.01,1.9-1.36,3.53-3.2,3.85h0Z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+/* Hover + Active states */
+.dot:hover {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+.active {
+  background: var(--brand);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px rgba(222,68,42,.18);
+}
+
+/* If you want the fallback to reflect active color too */
+@supports not (mask: url("")) {
+  .active {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65.76 56.84'><path fill='%23de442a' d='M62.33,46.69L4.5,56.78C2.14,57.2,0,55.33,0,52.89L.24,14c.01-1.9,1.36-3.53,3.2-3.85L61.27.06c2.36-.41,4.51,1.45,4.49,3.9l-.24,38.89c-.01,1.9-1.36,3.53-3.2,3.85h0Z'/></svg>");
+  }
+}
+
 
 /* =========================================================
    RESPONSIVE GLOBAL

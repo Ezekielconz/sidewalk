@@ -1,4 +1,4 @@
-import { Montserrat, Freehand, Gloria_Hallelujah} from "next/font/google";
+import { Montserrat, Freehand, Gloria_Hallelujah, Fraunces} from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 
