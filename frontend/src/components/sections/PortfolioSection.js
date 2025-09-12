@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "./Section";
 import styles from "../../app/page.module.css";
 
@@ -45,15 +44,14 @@ export default function PortfolioSection() {
                 aria-label={`${logo.alt} — opens in a new tab`}
                 title="Opens in a new tab"
               >
-                <Image
+                <img
                   src={logo.src}
                   alt={logo.alt}
                   width={160}
                   height={160}
                   className={styles.portfolioImage}
-                  sizes="(max-width: 520px) 33vw, (max-width: 900px) 33vw, 160px"
-                  loading="eager"
-                  quality={66}
+                  loading="lazy"
+                  decoding="async"
                 />
               </a>
             </li>

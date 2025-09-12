@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "./Section";
 import styles from "../../app/page.module.css";
 
@@ -18,13 +17,14 @@ export default function WhySection() {
         <div className={styles.listItems}>
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
-              <Image
+              <img
                 src="/images/section-why-craft.webp"
                 alt="Hand-drawn pencil illustration representing craft, not templates"
-                fill
+                width="80"
+                height="80"
                 className={styles.listIcon}
-                sizes="80px"
-                quality={70}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p>
@@ -34,13 +34,14 @@ export default function WhySection() {
 
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
-              <Image
+              <img
                 src="/images/section-why-performance.webp"
                 alt="Hand-drawn speedometer illustration symbolizing performance first"
-                fill
+                width="80"
+                height="80"
                 className={styles.listIcon}
-                sizes="80px"
-                quality={70}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p>
@@ -50,13 +51,14 @@ export default function WhySection() {
 
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
-              <Image
+              <img
                 src="/images/section-why-local.webp"
                 alt="Hand-drawn chat bubble over a location pin representing local and dependable"
-                fill
+                width="80"
+                height="80"
                 className={styles.listIcon}
-                sizes="80px"
-                quality={70}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p>
@@ -66,13 +68,14 @@ export default function WhySection() {
 
           <div className={styles.listItem}>
             <div className={styles.listIconWrap}>
-              <Image
+              <img
                 src="/images/section-why-idea.webp"
                 alt="Hand-drawn rocket illustration symbolizing from idea to launch"
-                fill
+                width="80"
+                height="80"
                 className={styles.listIcon}
-                sizes="80px"
-                quality={70}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p>

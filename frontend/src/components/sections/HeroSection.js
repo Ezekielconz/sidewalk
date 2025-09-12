@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "./Section";
 import styles from "../../app/page.module.css";
 
@@ -19,16 +18,13 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <Image
+        {/* Animated hero image: plain <img>, no lazy, high fetch priority */}
+        <img
           src="/images/section-hero.webp"
           alt="Hand-drawn sidewalk path winding forward with small grass tufts"
           className={styles.splitImage}
-          width={700}
-          height={520}
-          priority
+          decoding="async"
           fetchPriority="high"
-          quality={68}
-          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </Section>

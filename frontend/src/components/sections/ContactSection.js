@@ -13,11 +13,14 @@ export default function ContactSection() {
           <a className={styles.primaryCta} href="/contact">contact us</a>
         </div>
 
+        {/* Decorative animated image: lazy + async decode */}
         <img
           src="/images/section-contact2.webp"
-          alt="Hand-drawn illustration of Earth with an envelope, symbolizing global contact"
+          alt=""
           aria-hidden="true"
           className={styles.splitImage}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </Section>
