@@ -7,17 +7,17 @@ const CLIENT_LOGOS = [
   {
     src: "/portfolio/underthehood.webp",
     alt: "Under The Hood BBQ logo",
-    href: "https://underthehoodbbq.co.nz/",
+    href: "https://underthehoodbbq.vercel.app/",
   },
   {
     src: "/portfolio/richmondafc.webp",
     alt: "Richmond AFC logo",
-    href: "https://www.richmondathletic.co.nz/",
+    href: "https://richmondathletic.vercel.app/",
   },
   {
     src: "/portfolio/kiwiexplorer.webp",
     alt: "Kiwi Explorers logo",
-    href: "https://www.kiwiexplorers.co.nz/",
+    href: "https://kiwiexplorers.vercel.app/",
   },
 ];
 
